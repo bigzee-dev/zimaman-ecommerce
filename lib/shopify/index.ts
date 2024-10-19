@@ -323,6 +323,7 @@ export async function getCollections(): Promise<Collection[]> {
       handle: '',
       title: 'All',
       description: 'All products',
+      image: null,
       seo: {
         title: 'All',
         description: 'All products'
@@ -336,7 +337,7 @@ export async function getCollections(): Promise<Collection[]> {
       (collection) => !collection.handle.startsWith('hidden')
     )
   ];
-
+  console.log(collections)
   return collections;
 }
 
