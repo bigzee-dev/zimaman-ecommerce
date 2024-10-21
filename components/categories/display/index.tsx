@@ -1,6 +1,6 @@
 import { Image, SEO } from 'lib/shopify/types';
 import { Suspense } from 'react';
-import Carousel from './cat-carousel';
+import DisplayCarousel from './cat-carousel';
 
 export type ListItem = {
   handle: string;
@@ -38,9 +38,9 @@ export default function DisplayCategoryCarousel({
           </h3>
         ) : null}
         {/* categories list rendered in medium to large devices */}
-        <ul className="hidden md:flex">
+        <ul className="flex">
           <Suspense fallback={null}>
-            <Carousel list={list} />
+            <DisplayCarousel list={list} />
           </Suspense>
         </ul>
         {/* categories list rendered in small devices */}

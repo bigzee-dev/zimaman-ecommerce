@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -5,15 +7,22 @@ import {
   CarouselItem,
   type CarouselApi
 } from '@/components/ui/carousel';
-import { cn } from '@/lib/utils';
-import { createUrl } from 'lib/utils';
+import { cn, createUrl } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'React';
-import { ListItem } from '.';
+import { useEffect, useState } from 'react';
 
-export default function Carousel({ list }: { list: ListItem[] }) {
+interface ListItem {
+  path: string;
+  image: {
+    url: string;
+    width: number;
+    height: number;
+  };
+}
+
+export default function DisplayCarousel({ list }: { list: ListItem[] }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -35,7 +44,7 @@ export default function Carousel({ list }: { list: ListItem[] }) {
   }, [api]);
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4">
+    <div className="mx-auto w-full max-w-5xl overflow-hidden px-2">
       <Carousel
         setApi={setApi}
         className="w-full"
@@ -44,25 +53,25 @@ export default function Carousel({ list }: { list: ListItem[] }) {
           loop: true
         }}
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-4 flex md:-ml-6">
           {list.map((item, index) => (
-            <CarouselItem key={index} className="basis-1/2 pl-2 md:basis-1/3 md:pl-4 lg:basis-1/4">
+            <CarouselItem key={index} className="basis-2/3 md:basis-2/3 md:pl-6 lg:basis-1/3">
               <Link href={createUrl(item.path, newParams)}>
                 <div className="p-1">
                   <Card
                     className={cn(
                       'transform transition-all duration-300 ease-in-out',
-                      current === index ? 'scale-100' : 'scale-90 opacity-70'
+                      current === index ? 'scale-100 opacity-100' : 'scale-90 opacity-70'
                     )}
                   >
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                    <CardContent className="p-0">
                       <Image
                         src={item.image.url}
                         alt=""
                         width={item.image.width}
                         height={item.image.height}
-                        style={{ objectFit: 'contain' }}
-                        className="h-[200px] w-[100px]"
+                        style={{ objectFit: 'cover' }}
+                        className="h-[450px] w-full rounded-xl object-contain"
                       />
                     </CardContent>
                   </Card>
@@ -72,7 +81,7 @@ export default function Carousel({ list }: { list: ListItem[] }) {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="py-2 text-center">
+      <div className="">
         <div className="flex items-center justify-center gap-2 py-2">
           {Array.from({ length: count }).map((_, index) => (
             <button

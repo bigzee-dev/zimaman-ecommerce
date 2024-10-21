@@ -16,6 +16,11 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"]
+    },
     "noUncheckedIndexedAccess": true,
     "plugins": [
       {

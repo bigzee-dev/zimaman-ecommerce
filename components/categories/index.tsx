@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 
 import { getCollections } from 'lib/shopify';
-import DisplayCategoryCarousel from './filter';
+import DisplayCategoryCarousel from './display';
 
 async function CollectionList() {
   const collections = await getCollections();
