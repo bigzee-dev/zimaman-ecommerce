@@ -1,10 +1,18 @@
 import { SortFilterItem } from 'lib/constants';
+import { Image, SEO } from 'lib/shopify/types';
 import { Suspense } from 'react';
 import FilterItemDropdown from './dropdown';
 import { FilterItem } from './item';
 
 export type ListItem = SortFilterItem | PathFilterItem;
-export type PathFilterItem = { title: string; path: string };
+export type PathFilterItem = {
+  handle: string;
+  title: string;
+  description: string;
+  image: Image;
+  seo: SEO;
+  updatedAt: string;
+};
 
 function FilterItemList({ list }: { list: ListItem[] }) {
   return (
