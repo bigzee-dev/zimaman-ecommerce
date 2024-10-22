@@ -44,20 +44,23 @@ export default function DisplayCarousel({ list }: { list: ListItem[] }) {
   }, [api]);
 
   return (
-    <div className="mx-auto w-full max-w-5xl overflow-hidden px-2">
+    <div className="mx-auto w-full max-w-5xl overflow-hidden border border-red-600 px-3">
       <Carousel
         setApi={setApi}
         className="w-full"
         opts={{
           align: 'center',
-          loop: true
+          loop: false
         }}
       >
         <CarouselContent className="-ml-4 flex md:-ml-6">
           {list.map((item, index) => (
-            <CarouselItem key={index} className="basis-2/3 md:basis-2/3 md:pl-6 lg:basis-1/3">
+            <CarouselItem
+              key={index}
+              className="max-w-[380px] basis-3/4 md:hidden md:max-w-[350px] md:basis-2/3"
+            >
               <Link href={createUrl(item.path, newParams)}>
-                <div className="p-1">
+                <div className="">
                   <Card
                     className={cn(
                       'transform transition-all duration-300 ease-in-out',
@@ -71,7 +74,7 @@ export default function DisplayCarousel({ list }: { list: ListItem[] }) {
                         width={item.image.width}
                         height={item.image.height}
                         style={{ objectFit: 'cover' }}
-                        className="h-[450px] w-full rounded-xl object-contain"
+                        className="h-[500px] w-full max-w-[380px] rounded-xl object-contain md:max-w-[350px]"
                       />
                     </CardContent>
                   </Card>

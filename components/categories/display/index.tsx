@@ -32,11 +32,7 @@ export default function DisplayCategoryCarousel({
   return (
     <>
       <nav>
-        {title ? (
-          <h3 className="hidden text-xs text-neutral-500 md:block dark:text-neutral-400">
-            {title}
-          </h3>
-        ) : null}
+        {title ? <h3 className="text-xs text-neutral-500 dark:text-neutral-400">{title}</h3> : null}
         {/* categories list rendered in medium to large devices */}
         <ul className="flex">
           <Suspense fallback={null}>
