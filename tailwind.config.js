@@ -6,9 +6,9 @@ module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      sm: '460px', // Small screens (min-width: 460px)
-      md: '768px', // Medium screens (min-width: 768px)
-      lg: '1024px' // Large screens (min-width: 1024px)
+      sm: '460px', // Small screens greater than or equal to 460
+      md: '768px', // Medium screens greater than or equal to 768
+      lg: '1024px' // Large screens greater than or equal to 1024
     },
     extend: {
       fontFamily: {

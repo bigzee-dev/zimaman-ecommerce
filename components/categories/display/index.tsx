@@ -1,6 +1,10 @@
+'use client';
+
+import { useScreenWidth } from '@/hooks/screenwidth';
 import { Image, SEO } from 'lib/shopify/types';
 import { Suspense } from 'react';
-import DisplayCarousel from './cat-carousel';
+import CarouselLarge from './carousel-lrg';
+import CarouselSmall from './carousel-sml';
 
 export type ListItem = {
   handle: string;
@@ -12,15 +16,7 @@ export type ListItem = {
   updatedAt: string;
 };
 
-// function FilterItemList({ list }: { list: ListItem[] }) {
-//   return (
-//     <>
-//       {list.map((item: ListItem, i) => (
-//         <FilterItem key={i} item={item} />
-//       ))}
-//     </>
-//   );
-// }
+// this component displays the categories carousel, the carousel displayed depends on the screen size
 
 export default function DisplayCategoryCarousel({
   list,
@@ -29,14 +25,20 @@ export default function DisplayCategoryCarousel({
   list: ListItem[];
   title?: string;
 }) {
+  const screenWidth = useScreenWidth();
+
   return (
     <>
       <nav>
-        {title ? <h3 className="text-xs text-neutral-500 dark:text-neutral-400">{title}</h3> : null}
+        {title ? (
+          <h3 className="text-grey-900 mb-6 px-4 text-2xl font-medium dark:text-neutral-400">
+            {title}
+          </h3>
+        ) : null}
         {/* categories list rendered in medium to large devices */}
-        <ul className="flex">
+        <ul className="flex w-full justify-center border border-blue-700 px-5">
           <Suspense fallback={null}>
-            <DisplayCarousel list={list} />
+            {screenWidth < 768 ? <CarouselSmall list={list} /> : <CarouselLarge list={list} />}
           </Suspense>
         </ul>
         {/* categories list rendered in small devices */}
