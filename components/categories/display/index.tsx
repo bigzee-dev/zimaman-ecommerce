@@ -38,7 +38,11 @@ export default function DisplayCategoryCarousel({
         {/* categories list rendered in medium to large devices */}
         <ul className="flex w-full justify-center border border-blue-700 px-5">
           <Suspense fallback={null}>
-            {screenWidth < 768 ? <CarouselSmall list={list} /> : <CarouselLarge list={list} />}
+            {screenWidth < 768 ? (
+              <CarouselSmall list={[]} {...list} />
+            ) : (
+              <CarouselLarge {...list} />
+            )}
           </Suspense>
         </ul>
         {/* categories list rendered in small devices */}

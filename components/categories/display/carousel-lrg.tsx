@@ -7,7 +7,9 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel-large/carousel';
 
-export default function CarouselSpacing() {
+import { ListItem } from './';
+
+export default function CarouselSpacing({}: ListItem[]) {
   return (
     <div className="relative w-full max-w-4xl">
       <Carousel className="w-full">
