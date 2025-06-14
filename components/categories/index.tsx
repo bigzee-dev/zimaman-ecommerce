@@ -1,37 +1,137 @@
-import clsx from 'clsx';
-import { Suspense } from 'react';
+'use client';
 
-import { getCollections } from 'lib/shopify';
-import DisplayCategoryCarousel from './display';
+import { notoSans } from '@/app/fonts';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRef, useState } from 'react';
+import { BiSolidCategory } from 'react-icons/bi';
 
-async function CollectionList() {
-  const collections = await getCollections();
-  return <DisplayCategoryCarousel list={collections} title="Categories" />;
-}
+const categories = [
+  {
+    name: 'Watches',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/watches'
+  },
+  {
+    name: 'Mobile & Tablets',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/mobile-tablets'
+  },
+  {
+    name: 'Health & Sports',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/health-sports'
+  },
+  {
+    name: 'Home Appliances',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/home-appliances'
+  },
+  {
+    name: 'Games & Videos',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/games-videos'
+  },
+  {
+    name: 'Televisions',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/televisions'
+  }
+];
 
-const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';
-const activeAndTitles = 'bg-neutral-800 dark:bg-neutral-300';
-const items = 'bg-neutral-400 dark:bg-neutral-700';
+export default function CategoryCarousel() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-export default function Categories() {
-  return (
-    <Suspense
-      fallback={
-        <div className="col-span-2 hidden h-[400px] w-full flex-none py-4 lg:block">
-          <div className={clsx(skeleton, activeAndTitles)} />
-          <div className={clsx(skeleton, activeAndTitles)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-          <div className={clsx(skeleton, items)} />
-        </div>
+  const checkScrollability = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 10);
+    }
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = container.clientWidth * 0.75;
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       }
-    >
-      <CollectionList />
-    </Suspense>
+      setTimeout(checkScrollability, 300);
+    }
+  };
+
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
+      <div className="mb-4 flex items-center">
+        <div className="flex items-center text-gray-600">
+          <BiSolidCategory className="mr-2 h-5 w-5 text-[#facc15]/60" />
+          <span className={` ${notoSans.className} text-sm font-medium dark:text-neutral-400`}>
+            Categories
+          </span>
+        </div>
+      </div>
+
+      <div className="mb-10 flex items-center justify-between">
+        <h2 className="text-2xl font-bold dark:text-neutral-400 md:text-3xl">Browse by Category</h2>
+        <div className="flex space-x-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-xl border-gray-200"
+            onClick={() => scroll('left')}
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft className="h-5 w-5 dark:text-gray-500" />
+            <span className="sr-only">Scroll left</span>
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-xl border-gray-200"
+            onClick={() => scroll('right')}
+            disabled={!canScrollRight}
+          >
+            <ChevronRight className="h-5 w-5 dark:text-gray-500" />
+            <span className="sr-only">Scroll right</span>
+          </Button>
+        </div>
+      </div>
+
+      <div
+        ref={scrollContainerRef}
+        className="scrollbar-hide flex snap-x gap-x-12 overflow-x-auto pb-6"
+        onScroll={checkScrollability}
+      >
+        {categories.map((category, index) => (
+          <Link
+            key={index}
+            href={category.href}
+            className="flex min-w-[140px] snap-start flex-col items-center sm:min-w-[160px]"
+          >
+            <div className="mb-3 flex h-[140px] w-[140px] items-center justify-center rounded-full p-4 dark:bg-gray-200/95 sm:h-[160px] sm:w-[160px]">
+              <Image
+                src="/img/spices/fhirsch/bpep1kg-cnv -tpng.png"
+                alt={category.name}
+                width={1024}
+                height={1024}
+                className="object-contain"
+              />
+            </div>
+            <span className="text-center text-sm font-medium uppercase dark:text-neutral-300">
+              {category.name}
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      {/* <div className="mt-6 border-t dark:border-gray-500/20"></div> */}
+    </section>
   );
 }

@@ -1,0 +1,24 @@
+import { Cairo, Expletus_Sans, Inter, Noto_Sans } from 'next/font/google';
+
+export const notoSans = Noto_Sans({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+export const inter = Inter({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+export const expletus = Expletus_Sans({
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+export const cairo = Cairo({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  display: 'swap'
+});

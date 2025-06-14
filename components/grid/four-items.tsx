@@ -1,9 +1,11 @@
+import { notoSans } from '@/app/fonts';
 import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
+import { FaTags } from 'react-icons/fa';
 
-function ThreeItemGridItem({
+function FourItemGridItem({
   item,
   size,
   priority
@@ -14,7 +16,7 @@ function ThreeItemGridItem({
 }) {
   return (
     <div
-      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
+      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
     >
       <Link
         className="relative block aspect-square h-full w-full"
@@ -41,7 +43,7 @@ function ThreeItemGridItem({
   );
 }
 
-export async function ThreeItemGrid() {
+export async function FourItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
     collection: 'hidden-homepage-featured-items'
@@ -52,10 +54,26 @@ export async function ThreeItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <section className="mx-auto grid max-w-7xl gap-4 px-2 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]">
-      <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={thirdProduct} />
-    </section>
+    <div className="w-full bg-neutral-800/40 py-12">
+      <div className="mx-auto max-w-7xl px-2">
+        <div className="mb-4 flex items-center">
+          <div className="flex items-center text-gray-600">
+            <FaTags className="mr-2 h-5 w-5 text-[#facc15]/60" />
+            <span className={` ${notoSans.className} text-sm font-medium dark:text-neutral-400`}>
+              Specials
+            </span>
+          </div>
+        </div>
+        <h2 className="mb-10 text-2xl font-bold dark:text-neutral-400 md:text-3xl">
+          This Months Specials
+        </h2>
+        <section className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4 md:grid-rows-1 lg:max-h-[calc(100vh-200px)]">
+          <FourItemGridItem size="half" item={firstProduct} priority={true} />
+          <FourItemGridItem size="half" item={secondProduct} priority={true} />
+          <FourItemGridItem size="half" item={thirdProduct} />
+          <FourItemGridItem size="half" item={thirdProduct} />
+        </section>
+      </div>
+    </div>
   );
 }

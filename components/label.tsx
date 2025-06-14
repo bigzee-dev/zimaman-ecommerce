@@ -1,3 +1,4 @@
+import { notoSans } from '@/app/fonts';
 import clsx from 'clsx';
 import Price from './price';
 
@@ -18,10 +19,14 @@ const Label = ({
         'lg:px-20 lg:pb-[35%]': position === 'center'
       })}
     >
-      <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-        <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
+      <div className="flex items-center rounded-full border-2 bg-white/70 p-1 backdrop-blur-md dark:border-neutral-950 dark:bg-neutral-200">
+        <h3
+          className={` ${notoSans.className} mr-4 flex-grow pl-2 text-sm font-semibold leading-none dark:text-[#212222]`}
+        >
+          {title}
+        </h3>
         <Price
-          className="flex-none rounded-full bg-blue-600 p-2 text-white"
+          className={` ${notoSans.className} flex-none rounded-full bg-[#212222] px-2 py-1 text-base font-medium text-red-400/85`}
           amount={amount}
           currencyCode={currencyCode}
           currencyCodeClassName="hidden @[275px]/label:inline"
