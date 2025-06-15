@@ -57,9 +57,9 @@ export async function FourItemGrid() {
     <div className="w-full bg-neutral-800/40 py-12">
       <div className="mx-auto max-w-7xl px-2">
         <div className="mb-4 flex items-center">
-          <div className="flex items-center text-gray-600">
-            <FaTags className="mr-2 h-5 w-5 text-[#facc15]/60" />
-            <span className={` ${notoSans.className} text-sm font-medium dark:text-neutral-400`}>
+          <div className="flex items-center">
+            <FaTags className="mr-2 h-5 w-5 dark:text-[#facc15]/60" />
+            <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
               Specials
             </span>
           </div>

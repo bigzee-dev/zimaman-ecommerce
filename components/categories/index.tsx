@@ -70,16 +70,18 @@ export default function CategoryCarousel() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
       <div className="mb-4 flex items-center">
-        <div className="flex items-center text-gray-600">
-          <BiSolidCategory className="mr-2 h-5 w-5 text-[#facc15]/60" />
-          <span className={` ${notoSans.className} text-sm font-medium dark:text-neutral-400`}>
+        <div className="flex items-center">
+          <BiSolidCategory className="mr-2 h-5 w-5 dark:text-[#925c11]" />
+          <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
             Categories
           </span>
         </div>
       </div>
 
       <div className="mb-10 flex items-center justify-between">
-        <h2 className="text-2xl font-bold dark:text-neutral-400 md:text-3xl">Browse by Category</h2>
+        <h2 className="dark: text-2xl font-bold text-neutral-400 md:text-3xl">
+          Browse by Category
+        </h2>
         <div className="flex space-x-2">
           <Button
             variant="outline"
@@ -115,7 +117,7 @@ export default function CategoryCarousel() {
             href={category.href}
             className="flex min-w-[140px] snap-start flex-col items-center sm:min-w-[160px]"
           >
-            <div className="mb-3 flex h-[140px] w-[140px] items-center justify-center rounded-full p-4 dark:bg-gray-200/95 sm:h-[160px] sm:w-[160px]">
+            <div className="mb-4 flex h-[140px] w-[140px] items-center justify-center rounded-full p-4 dark:bg-gray-200/95 sm:h-[160px] sm:w-[160px]">
               <Image
                 src="/img/spices/fhirsch/bpep1kg-cnv -tpng.png"
                 alt={category.name}

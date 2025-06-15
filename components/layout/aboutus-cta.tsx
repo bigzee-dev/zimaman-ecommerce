@@ -28,9 +28,9 @@ export default function AboutUsCTA() {
             </div>
             <Button
               size="lg"
-              className="rounded-xl bg-neutral-200 px-4 py-2 text-sm font-semibold hover:bg-blue-700 dark:text-neutral-800"
+              className="min-w-36 rounded-lg bg-neutral-200 px-5 py-1.5 text-base font-semibold hover:bg-blue-700 dark:text-neutral-800"
             >
-              Learn More About Us
+              About Us <span aria-hidden="true"> →</span>
             </Button>
           </div>
 

@@ -1,11 +1,13 @@
-import AboutUsCTA from '@/components/layout/aboutus-cta';
 import LinksBar from '@/components/layout/linksbar';
-import { Carousel } from 'components/carousel';
+import LocationOrdering from '@/components/home/findus';
+import AboutUsCTA from '@/components/layout/aboutus-cta';
 import CategoryCarousel from 'components/categories';
 import FeaturesSection from 'components/features';
 import { FourItemGrid } from 'components/grid/four-items';
 import { ThreeItemGrid } from 'components/grid/three-items';
+import { Carousel } from 'components/carousel';
 import Footer from 'components/layout/footer';
+
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -36,13 +38,12 @@ export default function HomePage() {
         <ThreeItemGrid />
         <FeaturesSection />
       </div>
-
       <CategoryCarousel />
       <FourItemGrid />
       <AboutUsCTA />
+      <FourItemGrid />
+      <LocationOrdering />
       <Carousel />
-      {/* <Categories /> */}
-
       <Footer />
     </>
   );
