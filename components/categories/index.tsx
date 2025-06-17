@@ -71,7 +71,7 @@ export default function CategoryCarousel() {
     <section className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
       <div className="mb-4 flex items-center">
         <div className="flex items-center">
-          <BiSolidCategory className="mr-2 h-5 w-5 dark:text-[#925c11]" />
+          <BiSolidCategory className="mr-2 h-5 w-5 dark:text-red-600" /> {/*text-[#925c11]*/}
           <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
             Categories
           </span>
@@ -126,7 +126,9 @@ export default function CategoryCarousel() {
                 className="object-contain"
               />
             </div>
-            <span className="text-center text-sm font-medium uppercase dark:text-neutral-300">
+            <span
+              className={` ${notoSans.className} text-center text-sm font-medium uppercase dark:text-neutral-300`}
+            >
               {category.name}
             </span>
           </Link>

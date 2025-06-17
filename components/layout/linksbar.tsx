@@ -9,14 +9,21 @@
 import { Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import Image from 'next/image';
 export default function LinksBar() {
   const [pagesOpen, setPagesOpen] = useState(false);
   const [blogsOpen, setBlogsOpen] = useState(false);
 
   return (
-    <header className="w-full border-t dark:border-gray-500/30">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-2 md:px-6">
+    <header className="relative w-full">
+      <Image
+        src="/red-bg.png"
+        alt="red background"
+        width={2000}
+        height={100}
+        className="absolute inset-0 h-full w-full object-cover opacity-85"
+      />
+      <div className="relative z-10 mx-auto flex h-16 max-w-7xl items-center justify-between px-2 md:px-6">
         <nav className="flex items-center space-x-6">
           <Link
             href="#"

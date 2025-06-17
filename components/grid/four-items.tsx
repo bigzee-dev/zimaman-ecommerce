@@ -67,7 +67,11 @@ export async function FourItemGrid() {
         <h2 className="mb-10 text-2xl font-bold dark:text-neutral-400 md:text-3xl">
           This Months Specials
         </h2>
-        <section className="mx-auto grid max-w-7xl gap-4 md:grid-cols-4 md:grid-rows-1 lg:max-h-[calc(100vh-200px)]">
+        <section className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]">
+          <FourItemGridItem size="half" item={firstProduct} priority={true} />
+          <FourItemGridItem size="half" item={secondProduct} priority={true} />
+          <FourItemGridItem size="half" item={thirdProduct} />
+          <FourItemGridItem size="half" item={thirdProduct} />
           <FourItemGridItem size="half" item={firstProduct} priority={true} />
           <FourItemGridItem size="half" item={secondProduct} priority={true} />
           <FourItemGridItem size="half" item={thirdProduct} />
