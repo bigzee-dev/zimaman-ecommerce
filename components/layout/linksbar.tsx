@@ -26,7 +26,7 @@ export default function LinksBar() {
       <div className="relative z-10 mx-auto flex h-16 max-w-7xl items-center justify-between px-2 md:px-6">
         <nav className="flex items-center space-x-6">
           <Link
-            href="#"
+            href="/search"
             className="text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
           >
             Shop

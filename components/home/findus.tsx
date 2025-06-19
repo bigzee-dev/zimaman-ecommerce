@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock, Navigation } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { whiteBtn } from '@/app/ui/custom-classes';
 
 export default function FindUs() {
   const locations = [
@@ -25,12 +26,16 @@ export default function FindUs() {
     }
   ];
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <h2 className={`mb-12 w-full text-center text-2xl font-bold text-transparent md:text-5xl`}>
+    <section className="mx-auto max-w-6xl px-4 py-12 md:py-16 md:pt-12">
+      <h2 className={`mb-4 w-full text-center text-2xl font-bold text-transparent md:text-6xl`}>
         <span className="bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700 bg-clip-text">
-          Find us here
+          Find us Here
         </span>
       </h2>
+      <p className="mx-auto mb-12 max-w-3xl text-center text-base font-medium text-neutral-400">
+        Come check out our shop in Maun! We're in the Old Mall, near Access Bank — opposite to CEDA
+        and Portsway Pharmacy.
+      </p>
       <div className="grid grid-cols-1 gap-x-16 md:grid-cols-12">
         {/* Left Container - Location */}
         <div className="col-span-7 space-y-6">
@@ -127,12 +132,8 @@ export default function FindUs() {
 
                   {/* Actions */}
                   <div className="flex gap-2 pt-2">
-                    <Link
-                      href="/contact"
-                      className="flex min-w-36 items-center gap-2 rounded-lg bg-neutral-200 px-5 py-1.5 text-base font-semibold hover:bg-blue-700 dark:text-neutral-800"
-                    >
-                      Contact us
-                      <Navigation className="h-4 w-4" />
+                    <Link href="/contact" className={` ${whiteBtn} `}>
+                      Contact Us
                     </Link>
                     <Link
                       href="/contact"

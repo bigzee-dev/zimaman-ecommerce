@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { blackBtn, whiteBtn } from '@/app/ui/custom-classes';
 
 export default function LocationOrdering() {
   return (
@@ -82,20 +83,13 @@ export default function LocationOrdering() {
               <p className="mb-6 max-w-md text-neutral-300">
                 Browse our products now and experience our seamless ordering process.
               </p>
-              <div className="flex flex-col justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/search"
-                  className="mt-1 min-w-36 rounded-lg bg-neutral-900 px-5 py-1.5 text-base font-semibold hover:bg-blue-700 dark:text-neutral-200"
-                >
-                  Browse Products
-                  <ArrowRight className="ml-2 h-4 w-4" />
+              <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                <Link href="/contact" className={` ${blackBtn} `}>
+                  All Products
                 </Link>
-                <Button
-                  size="lg"
-                  className="mt-1 min-w-36 rounded-lg bg-neutral-200 px-5 py-1.5 text-base font-semibold hover:bg-blue-700 dark:text-neutral-800"
-                >
-                  Contact Us <span aria-hidden="true"> →</span>
-                </Button>
+                <Link href="/contact" className={` ${whiteBtn} `}>
+                  About Us
+                </Link>
               </div>
             </CardContent>
           </Card>

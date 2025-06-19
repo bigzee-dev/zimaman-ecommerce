@@ -1,7 +1,14 @@
 import { notoSans } from '@/app/fonts';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaCheck } from 'react-icons/fa';
+import { transparentBtn, whiteBtn } from '@/app/ui/custom-classes';
+
+const features = [
+  'Visually stunning, secure websites',
+  'Mobile Responsiveness, works flawlessly on all devices',
+  'AI Integration, SEO Optimization, Site Analytics '
+];
 
 export default function AboutUsCTA() {
   return (
@@ -19,25 +26,27 @@ export default function AboutUsCTA() {
               <h2 className={`text-4xl font-bold leading-tight dark:text-neutral-300 sm:text-5xl`}>
                 CRAFTING QUALITY
                 <br />
-                SINCE 2010
+                SINCE 2015
               </h2>
-              <p className="max-w-lg text-base leading-relaxed text-neutral-400">
+              <p className="max-w-lg text-base leading-relaxed text-neutral-300/85">
                 We're passionate about bringing you the finest products with exceptional
                 craftsmanship. Our journey started with a simple mission: to create meaningful
                 connections through quality goods.
               </p>
+              <ul className="mt-6 space-y-2 text-neutral-400">
+                {features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-x-3 font-sans text-base">
+                    <FaCheck aria-hidden="true" className="h-auto w-3 flex-none text-[#925c11]" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex gap-4">
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex min-w-36 items-center justify-center rounded-[0.60rem] bg-neutral-200 px-5 py-[0.445rem] text-base font-medium hover:bg-blue-700 dark:text-neutral-800"
-              >
-                Contact us
+            <div className="mt-6 flex gap-4">
+              <Link href="/contact" className={` ${whiteBtn} `}>
+                About Us
               </Link>
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex min-w-36 items-center justify-center rounded-[0.60rem] border bg-white/5 px-5 py-[0.445rem] text-base font-medium hover:bg-blue-700 dark:border-neutral-600 dark:text-neutral-300"
-              >
+              <Link href="/contact" className={` ${transparentBtn} `}>
                 Our Products
               </Link>
             </div>

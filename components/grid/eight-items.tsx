@@ -5,7 +5,7 @@ import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
 import { FaTags } from 'react-icons/fa';
 
-function FourItemGridItem({
+function EightItemGridItem({
   item,
   size,
   priority
@@ -43,7 +43,7 @@ function FourItemGridItem({
   );
 }
 
-export async function FourItemGrid() {
+export async function EightItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
     collection: 'hidden-homepage-featured-items'
@@ -58,7 +58,7 @@ export async function FourItemGrid() {
       <div className="mx-auto max-w-7xl px-2">
         <div className="mb-4 flex items-center">
           <div className="flex items-center">
-            <FaTags className="mr-2 h-5 w-5 dark:text-[#facc15]/60" />
+            <FaTags className="mr-2 h-5 w-5 dark:text-red-700" />
             <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
               Specials
             </span>
@@ -67,15 +67,15 @@ export async function FourItemGrid() {
         <h2 className="mb-10 text-2xl font-bold dark:text-neutral-400 md:text-3xl">
           This Months Specials
         </h2>
-        <section className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4 md:grid-rows-1 lg:max-h-[calc(100vh-200px)]">
-          <FourItemGridItem size="half" item={firstProduct} priority={true} />
-          <FourItemGridItem size="half" item={secondProduct} priority={true} />
-          <FourItemGridItem size="half" item={thirdProduct} />
-          <FourItemGridItem size="half" item={thirdProduct} />
-          {/* <FourItemGridItem size="half" item={firstProduct} priority={true} />
-          <FourItemGridItem size="half" item={secondProduct} priority={true} />
-          <FourItemGridItem size="half" item={thirdProduct} />
-          <FourItemGridItem size="half" item={thirdProduct} /> */}
+        <section className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4 md:grid-rows-2 lg:max-h-[calc(100vh-100px)]">
+          <EightItemGridItem size="half" item={firstProduct} priority={true} />
+          <EightItemGridItem size="half" item={secondProduct} priority={true} />
+          <EightItemGridItem size="half" item={thirdProduct} />
+          <EightItemGridItem size="half" item={thirdProduct} />
+          <EightItemGridItem size="half" item={firstProduct} priority={true} />
+          <EightItemGridItem size="half" item={secondProduct} priority={true} />
+          <EightItemGridItem size="half" item={thirdProduct} />
+          <EightItemGridItem size="half" item={thirdProduct} />
         </section>
       </div>
     </div>

@@ -69,13 +69,20 @@ export default function CategoryCarousel() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
-      <div className="mb-4 flex items-center">
+      <div className="mb-4 flex w-full items-center justify-between">
         <div className="flex items-center">
-          <BiSolidCategory className="mr-2 h-5 w-5 dark:text-red-600" /> {/*text-[#925c11]*/}
-          <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
+          <BiSolidCategory className="mr-2 h-5 w-5 text-red-500" /> {/*text-[#925c11]*/}
+          <span className={` ${notoSans.className} text-sm font-medium text-neutral-300/80`}>
             Categories
           </span>
         </div>
+        <Link
+          href="/search"
+          className="self-center rounded-md border border-neutral-800 bg-neutral-400/5 p-2 px-4 text-sm font-medium text-red-400"
+          style={{ justifySelf: 'center' }}
+        >
+          View All
+        </Link>
       </div>
 
       <div className="mb-10 flex items-center justify-between">

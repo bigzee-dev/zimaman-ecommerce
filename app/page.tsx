@@ -5,6 +5,7 @@ import FeaturesSection from 'components/features';
 import { FourItemGrid } from 'components/grid/four-items';
 import AboutUsCTA from '@/components/layout/aboutus-cta';
 import FindUs from '@/components/home/findus';
+import { EightItemGrid } from 'components/grid/eight-items';
 import LocationOrdering from '@/components/home/how-to-order';
 import { Carousel } from 'components/carousel';
 import Footer from 'components/layout/footer';
@@ -44,9 +45,9 @@ export default function HomePage() {
       <CategoryCarousel />
       <FourItemGrid />
       <AboutUsCTA />
-      <FourItemGrid />
+      <EightItemGrid />
       <FindUs />
-      <FourItemGrid />
+      <EightItemGrid />
       <LocationOrdering />
       <Carousel />
       <Footer />
