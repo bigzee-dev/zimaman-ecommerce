@@ -24,7 +24,7 @@ export default function LinksBar() {
         className="absolute inset-0 h-full w-full object-cover opacity-85"
       />
       <div className="relative z-10 mx-auto flex h-16 max-w-7xl items-center justify-between px-2 md:px-6">
-        <nav className="flex items-center space-x-6">
+        <nav className="flex items-center space-x-6 text-neutral-300">
           <Link
             href="/search"
             className="text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
@@ -42,6 +42,12 @@ export default function LinksBar() {
             className="text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
           >
             Contact
+          </Link>
+          <Link
+            href="#"
+            className="text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
+          >
+            FAQS
           </Link>
           {/* <DropdownMenu open={pagesOpen} onOpenChange={setPagesOpen}>
             <DropdownMenuTrigger asChild>
@@ -97,17 +103,17 @@ export default function LinksBar() {
         <div className="flex items-center space-x-10">
           <Link
             href="mailto:contact@example.com"
-            className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
+            className="flex items-center gap-2 text-sm font-medium text-neutral-300 transition-colors hover:text-primary dark:text-neutral-400"
           >
-            <Mail className="h-5 w-5 text-[#001F3F] dark:text-neutral-400" />
+            <Mail className="h-5 w-5 text-neutral-400 dark:text-neutral-400" />
 
             <span className="hidden sm:inline">contact@example.com</span>
           </Link>
           <Link
             href="tel:+1234567890"
-            className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary dark:text-neutral-400"
+            className="flex items-center gap-2 text-sm font-medium text-neutral-300 transition-colors hover:text-primary dark:text-neutral-400"
           >
-            <Phone className="h-5 w-5 text-[#001F3F] dark:text-neutral-400" />
+            <Phone className="h-5 w-5 text-neutral-400 dark:text-neutral-400" />
 
             <span className="hidden sm:inline">+1 (234) 567-890</span>
           </Link>

@@ -39,21 +39,21 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <div className="w-full py-14">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="w-full pb-14 pt-20">
+      <div className="mx-auto max-w-4xl">
+        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2">
           {features.map((feature, index) => (
-            <div key={index} className="flex">
-              <div className="mr-2 flex h-12 w-12 items-center justify-center rounded-full border border-gray-500/25 bg-white/5 p-2.5 text-slate-400">
-                <feature.icon size={26} strokeWidth={1.5} />
+            <div key={index} className="flex flex-col items-center gap-y-4">
+              <div className="mr-2 flex h-20 w-20 items-center justify-center rounded-full border border-gray-500/25 bg-neutral-50 p-3 text-red-600 dark:text-slate-400">
+                <feature.icon size={42} strokeWidth={1.5} />
               </div>
-              <div>
+              <div className="text-center">
                 <h3
-                  className={` ${notoSans.className} whitespace-nowrap text-lg font-medium text-indigo-900 dark:text-neutral-300`}
+                  className={` ${notoSans.className} whitespace-nowrap text-lg font-semibold text-neutral-800 dark:text-neutral-300`}
                 >
                   {feature.title}
                 </h3>
-                <p className="mt-0.5 font-sans text-sm text-indigo-900 dark:text-neutral-400">
+                <p className="mt-1 font-sans text-[0.95rem] text-neutral-500 dark:text-neutral-400">
                   {feature.description}
                 </p>
               </div>
