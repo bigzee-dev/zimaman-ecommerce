@@ -44,7 +44,7 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center gap-y-4">
-              <div className="mr-2 flex h-20 w-20 items-center justify-center rounded-full border border-gray-500/25 bg-neutral-50 p-3 text-red-600 dark:text-slate-400">
+              <div className="mr-2 flex h-20 w-20 items-center justify-center rounded-full border border-gray-400 bg-neutral-50 p-3 text-red-600 dark:border-gray-500/25 dark:text-slate-400">
                 <feature.icon size={42} strokeWidth={1.5} />
               </div>
               <div className="text-center">

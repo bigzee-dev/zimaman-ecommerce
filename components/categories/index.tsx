@@ -68,7 +68,7 @@ export default function CategoryCarousel() {
   };
 
   return (
-    <section className="w-full bg-neutral-200 dark:bg-transparent">
+    <section className="w-full border border-neutral-300 bg-neutral-100 dark:border-transparent dark:bg-transparent">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
         <div className="mb-4 flex w-full items-center justify-between">
           <div className="flex items-center text-yellow-600">
