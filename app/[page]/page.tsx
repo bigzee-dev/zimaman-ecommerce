@@ -7,24 +7,25 @@ import { notFound } from 'next/navigation';
 export async function generateMetadata({
   params
 }: {
-  params: { page: string };
+  params: Promise<{ page: string }>;
 }): Promise<Metadata> {
-  const page = await getPage(params.page);
+  const { page } = await params;
+  const pageData = await getPage(page);
 
-  if (!page) return notFound();
+  if (!pageData) return notFound();
 
   return {
-    title: page.seo?.title || page.title,
-    description: page.seo?.description || page.bodySummary,
+    title: pageData.seo?.title || pageData.title,
+    description: pageData.seo?.description || pageData.bodySummary,
     openGraph: {
-      publishedTime: page.createdAt,
-      modifiedTime: page.updatedAt,
+      publishedTime: pageData.createdAt,
+      modifiedTime: pageData.updatedAt,
       type: 'article'
     }
   };
 }
 
-export default async function Page({ params }: { params: { page: string } }) {
+export default async function Page({ params }: { params: Promise<{ page: string }> }) {
   const { page } = await params;
   const pageData = await getPage(page);
 
@@ -32,14 +33,14 @@ export default async function Page({ params }: { params: { page: string } }) {
 
   return (
     <>
-      <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
-      <Prose className="mb-8" html={page.body as string} />
+      <h1 className="mb-8 text-5xl font-bold">{pageData.title}</h1>
+      <Prose className="mb-8" html={pageData.body as string} />
       <p className="text-sm italic">
         {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
-        }).format(new Date(page.updatedAt))}.`}
+        }).format(new Date(pageData.updatedAt))}.`}
       </p>
     </>
   );
