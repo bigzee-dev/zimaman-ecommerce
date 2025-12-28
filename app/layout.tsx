@@ -37,8 +37,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  const cartId = cookies().get('cartId')?.value;
-  // Don't await the fetch, pass the Promise to the context provider
+  const cartId = (await cookies()).get('cartId')?.value;
+
   const cart = getCart(cartId);
 
   return (
