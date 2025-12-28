@@ -15,9 +15,10 @@ import { Suspense } from 'react';
 export async function generateMetadata({
   params
 }: {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+  const { handle } = await params;
+  const product = await getProduct(handle);
 
   if (!product) return notFound();
 
@@ -50,8 +51,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProduct(params.handle);
+export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {
+  const { handle } = await params;
+  const product = await getProduct(handle);
 
   if (!product) return notFound();
 
@@ -80,7 +82,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-screen-2xl px-4">
+      <div className="max-w-screen-2xl mx-auto px-4">
         <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
           <div className="h-full w-full basis-full lg:basis-4/6">
             <Suspense
@@ -122,7 +124,7 @@ async function RelatedProducts({ id }: { id: string }) {
         {relatedProducts.map((product) => (
           <li
             key={product.handle}
-            className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+            className="aspect-square w-full flex-none sm:w-1/3 min-[475px]:w-1/2 md:w-1/4 lg:w-1/5"
           >
             <Link
               className="relative h-full w-full"
