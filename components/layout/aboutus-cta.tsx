@@ -1,4 +1,4 @@
-import { notoSans } from '@/app/fonts';
+import { lora, notoSans } from '@/app/fonts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCheck } from 'react-icons/fa';
@@ -17,25 +17,22 @@ export default function AboutUsCTA() {
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Content */}
           <div className="">
-            <div className="space-y-4">
-              <p
-                className={` ${notoSans.className} text-2xl font-medium text-neutral-400 underline`}
+            <div className="space-y-6">
+              <p className={` ${lora.className} text-darkmuted text-2xl font-medium`}>Our Story</p>
+              <h2
+                className={`${lora.className} dark:text-darkmain text-4xl font-bold leading-tight sm:text-5xl`}
               >
-                Our Story
-              </p>
-              <h2 className={`text-4xl font-bold leading-tight dark:text-neutral-300 sm:text-5xl`}>
                 CRAFTING QUALITY
                 <br />
                 SINCE 2015
               </h2>
-              <p className="max-w-lg text-base leading-relaxed text-neutral-300/85">
-                We're passionate about bringing you the finest products with exceptional
-                craftsmanship. Our journey started with a simple mission: to create meaningful
-                connections through quality goods.
-              </p>
-              <ul className="mt-6 space-y-2 text-neutral-400">
+
+              <ul className="mt-6 space-y-3 text-neutral-400">
                 {features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-x-3 font-sans text-base">
+                  <li
+                    key={feature}
+                    className={`${notoSans.className} flex items-center gap-x-3 text-sm`}
+                  >
                     <FaCheck aria-hidden="true" className="h-auto w-3 flex-none text-[#925c11]" />
                     {feature}
                   </li>

@@ -23,11 +23,11 @@ export default function HomePage() {
       <div className="relative z-10">
         <LinksBar />
       </div>
-      <div className="relative w-full pt-12 dark:bg-neutral-800/40">
+      <div className="relative w-full py-12 dark:bg-neutral-800/40">
         <div
           className="pattern-bg default-fade z-0"
           style={{
-            opacity: 0.15,
+            opacity: 0.2,
             transition: 'opacity 0.5s ease-in-out'
           }}
         ></div>
@@ -40,8 +40,8 @@ export default function HomePage() {
           }}
         ></div>
         <ThreeItemGrid />
-        <FeaturesSection />
       </div>
+      <FeaturesSection />
       <CategoryCarousel />
       <FourItemGrid />
       <AboutUsCTA />

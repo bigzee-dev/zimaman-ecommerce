@@ -1,11 +1,11 @@
-import { notoSans } from '@/app/fonts';
+import { lora } from '@/app/fonts';
 
 import { Card, CardContent } from '@/components/ui/card';
 
-import { MapPin, Phone, Mail, Clock, Navigation } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircleMore } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { whiteBtn } from '@/app/ui/custom-classes';
+import { redBtn } from '@/app/ui/custom-classes';
 
 export default function FindUs() {
   const locations = [
@@ -28,11 +28,13 @@ export default function FindUs() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 md:py-16 md:pt-12">
       <h2 className={`mb-4 w-full text-center text-2xl font-bold text-transparent md:text-6xl`}>
-        <span className="bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700 bg-clip-text">
+        <span
+          className={`font-heading bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700 bg-clip-text`}
+        >
           Find us Here
         </span>
       </h2>
-      <p className="mx-auto mb-12 max-w-3xl text-center text-base font-medium text-neutral-400">
+      <p className="font-content mx-auto mb-12 max-w-3xl text-center text-base font-medium text-neutral-400">
         Come check out our shop in Maun! We're in the Old Mall, near Access Bank — opposite to CEDA
         and Portsway Pharmacy.
       </p>
@@ -49,9 +51,9 @@ export default function FindUs() {
           </div>
         </div>
         {/* Right Container - How to Order */}
-        <div className="col-span-5 space-y-7">
+        <div className="font-content col-span-5 space-y-7">
           <h2
-            className={` ${notoSans.className} text-2xl font-semibold dark:text-neutral-400 md:text-3xl`}
+            className={` ${lora.className} text-2xl font-semibold md:text-3xl dark:text-neutral-400`}
           >
             Old Mall, Maun
           </h2>
@@ -88,19 +90,19 @@ export default function FindUs() {
                   {/* Address */}
                   <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400" />
-                    <div>
+                    <div className="text-sm">
                       <p className="font-medium text-neutral-300">{location.address}</p>
                       <p className="text-neutral-400">{location.city}</p>
                     </div>
                   </div>
 
                   {/* Contact */}
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-sm">
                       <Phone className="h-4 w-4 text-neutral-400" />
                       <p className="text-neutral-300 hover:underline">{location.phone}</p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 text-sm">
                       <Mail className="h-4 w-4 text-neutral-400" />
                       <a
                         href={`mailto:${location.email}`}
@@ -131,15 +133,15 @@ export default function FindUs() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2 pt-2">
-                    <Link href="/contact" className={` ${whiteBtn} `}>
+                  <div className="flex items-center gap-2 pt-4">
+                    <Link href="/contact" className={` ${redBtn} `}>
                       Contact Us
                     </Link>
                     <Link
                       href="/contact"
-                      className="flex items-center justify-center rounded-lg bg-neutral-200 p-1.5 text-base font-semibold hover:bg-blue-700 dark:text-neutral-800"
+                      className="flex h-[2.6rem] w-[2.6rem] items-center justify-center bg-neutral-200 p-1.5 text-base font-semibold text-neutral-800 hover:bg-blue-700"
                     >
-                      <Phone className="h-5 w-5" />
+                      <MessageCircleMore className="h-6 w-6 text-red-700" />
                     </Link>
                   </div>
                 </CardContent>

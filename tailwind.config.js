@@ -12,7 +12,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        sans: ['var(--font-geist-sans)'],
+        heading: ['var(--font-lora)', 'serif'],
+        content: ['var(--font-noto-sans)', 'sans-serif']
       },
       keyframes: {
         fadeIn: {
@@ -94,7 +96,11 @@ module.exports = {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))'
         },
-        darkprimary: '#121212'
+        hetzred: '#d50c2d',
+        hetzgray: '#3c3c3b',
+        darkprimary: '#121212',
+        darkmain: '#e5e5e5' /* neutral-200 */,
+        darkmuted: '#a3a3a3' /* neutral-400 */
       }
     }
   },

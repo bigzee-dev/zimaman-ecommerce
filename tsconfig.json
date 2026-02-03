@@ -22,6 +22,8 @@
       "@/lib/*": ["./lib/*"]
     },
     "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "plugins": [
       {
         "name": "next"

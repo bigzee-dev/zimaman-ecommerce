@@ -1,9 +1,17 @@
 import { Cairo, Expletus_Sans, Inter, Noto_Sans } from 'next/font/google';
+import { Lora } from 'next/font/google';
+
+export const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora',
+  weight: ['400', '500']
+});
 
 export const notoSans = Noto_Sans({
   weight: ['100', '300', '400', '500', '700', '900'],
   subsets: ['latin'],
-  display: 'swap'
+  display: 'swap',
+  variable: '--font-noto-sans'
 });
 
 export const inter = Inter({

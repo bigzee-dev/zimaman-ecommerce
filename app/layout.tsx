@@ -7,6 +7,7 @@ import { ensureStartsWith } from 'lib/utils';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
+import { lora, notoSans } from './fonts';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -42,14 +43,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const cart = getCart(cartId);
 
   return (
-    <html lang="en" className={GeistSans.variable}>
+    <html lang="en" className={`${GeistSans.variable} ${lora.variable} ${notoSans.variable}`}>
       <body className="overflow-x-hidden bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-950 dark:text-neutral-300 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
           <Navbar />
           <main>
             {children}
             <Toaster closeButton />
-            <WelcomeToast />
+            {/* <WelcomeToast /> */}
           </main>
         </CartProvider>
       </body>

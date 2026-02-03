@@ -59,7 +59,7 @@ const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 type ExtractVariables<T> = T extends { variables: object } ? T['variables'] : never;
 
 export async function shopifyFetch<T>({
-  cache = 'no-cache' /*force-cache*/,
+  cache = 'force-cache' /*no-cache*/,
   headers,
   query,
   tags,
@@ -434,7 +434,7 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   // otherwise it will continue to retry the request.
   const collectionWebhooks = ['collections/create', 'collections/delete', 'collections/update'];
   const productWebhooks = ['products/create', 'products/delete', 'products/update'];
-  const topic = headers().get('x-shopify-topic') || 'unknown';
+  const topic = (await headers()).get('x-shopify-topic') || 'unknown';
   const secret = req.nextUrl.searchParams.get('secret');
   const isCollectionUpdate = collectionWebhooks.includes(topic);
   const isProductUpdate = productWebhooks.includes(topic);

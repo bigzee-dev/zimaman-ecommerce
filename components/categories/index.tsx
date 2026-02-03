@@ -1,6 +1,7 @@
 'use client';
 
 import { notoSans } from '@/app/fonts';
+import { redBtn } from '@/app/ui/custom-classes';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -70,24 +71,17 @@ export default function CategoryCarousel() {
   return (
     <section className="w-full border border-neutral-300 bg-neutral-100 dark:border-transparent dark:bg-transparent">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
-        <div className="mb-4 flex w-full items-center justify-between">
+        <div className="mb-2 flex w-full items-center justify-between">
           <div className="flex items-center text-yellow-600">
             <BiSolidCategory className="mr-2 h-5 w-5" /> {/*text-[#925c11]*/}
-            <span className={` ${notoSans.className} text-sm font-medium dark:text-neutral-300/80`}>
+            <span className={`font-heading text-sm font-medium dark:text-neutral-300/80`}>
               Categories
             </span>
           </div>
-          <Link
-            href="/search"
-            className="self-center rounded-md border border-neutral-500 bg-neutral-900 p-2 px-4 text-sm font-medium text-neutral-200 dark:border-neutral-800 dark:bg-neutral-400/5 dark:text-red-400"
-            style={{ justifySelf: 'center' }}
-          >
-            View All
-          </Link>
         </div>
 
         <div className="mb-10 flex items-center justify-between">
-          <h2 className="dark: text-2xl font-bold text-neutral-800 md:text-3xl dark:text-neutral-400">
+          <h2 className="font-heading font-bold text-neutral-800 md:text-3xl dark:text-neutral-400">
             Browse by Category
           </h2>
           <div className="flex space-x-2">
@@ -135,12 +129,17 @@ export default function CategoryCarousel() {
                 />
               </div>
               <span
-                className={` ${notoSans.className} text-center text-sm font-medium uppercase text-neutral-600 dark:text-neutral-300`}
+                className={`text-center text-sm font-medium uppercase text-neutral-600 dark:text-neutral-300`}
               >
                 {category.name}
               </span>
             </Link>
           ))}
+        </div>
+        <div className="mt-4 flex w-full justify-center">
+          <Link href="/search" className={redBtn} style={{ justifySelf: 'center' }}>
+            View All Categories
+          </Link>
         </div>
       </div>
 

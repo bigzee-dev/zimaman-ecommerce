@@ -1,4 +1,3 @@
-import { notoSans } from '@/app/fonts';
 import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
@@ -59,12 +58,10 @@ export async function FourItemGrid() {
         <div className="mb-4 flex items-center">
           <div className="flex items-center">
             <FaTags className="mr-2 h-5 w-5 dark:text-[#facc15]/60" />
-            <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
-              Specials
-            </span>
+            <span className={`font-heading text-sm font-medium text-neutral-300`}>Specials</span>
           </div>
         </div>
-        <h2 className="mb-10 text-2xl font-bold dark:text-neutral-400 md:text-3xl">
+        <h2 className={`font-heading mb-8 text-2xl font-bold md:text-3xl dark:text-neutral-400`}>
           This Months Specials
         </h2>
         <section className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4 md:grid-rows-1 lg:max-h-[calc(100vh-200px)]">
