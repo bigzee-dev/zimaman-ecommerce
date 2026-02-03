@@ -9,16 +9,19 @@ import { defaultSort, sorting } from 'lib/constants';
 export async function generateMetadata({
   params
 }: {
-  params: { collection: string };
+  params: Promise<{ collection: string }>;
 }): Promise<Metadata> {
-  const collection = await getCollection(params.collection);
+  const { collection } = await params;
+  const collectionData = await getCollection(collection);
 
-  if (!collection) return notFound();
+  if (!collectionData) return notFound();
 
   return {
-    title: collection.seo?.title || collection.title,
+    title: collectionData.seo?.title || collectionData.title,
     description:
-      collection.seo?.description || collection.description || `${collection.title} products`
+      collectionData.seo?.description ||
+      collectionData.description ||
+      `${collectionData.title} products`
   };
 }
 
@@ -26,12 +29,14 @@ export default async function CategoryPage({
   params,
   searchParams
 }: {
-  params: { collection: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ collection: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const { sort } = searchParams as { [key: string]: string };
+  const { collection } = await params;
+  const searchParamsResolved = await searchParams;
+  const { sort } = searchParamsResolved as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
+  const products = await getCollectionProducts({ collection, sortKey, reverse });
 
   return (
     <section>

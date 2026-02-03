@@ -8,12 +8,9 @@
 // } from '@/components/ui/dropdown-menu';
 import { Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+
 import Image from 'next/image';
 export default function LinksBar() {
-  const [pagesOpen, setPagesOpen] = useState(false);
-  const [blogsOpen, setBlogsOpen] = useState(false);
-
   return (
     <header className="relative w-full bg-[#d50c2d]">
       <Image

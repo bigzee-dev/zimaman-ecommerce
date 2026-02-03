@@ -1,10 +1,9 @@
-import Image from 'next/image';
 import { notoSans } from '@/app/fonts';
-import { Button } from '@/components/ui/button';
+
 import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
-import { blackBtn, transparentBtn, whiteBtn } from '@/app/ui/custom-classes';
+import { transparentBtn, whiteBtn } from '@/app/ui/custom-classes';
 
 export default function LocationOrdering() {
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { notoSans } from '@/app/fonts';
+// import { notoSans } from '@/app/fonts';
 import { redBtn } from '@/app/ui/custom-classes';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';

@@ -1,5 +1,5 @@
 // import type { LucideIcon } from 'lucide-react';
-import { notoSans } from '@/app/fonts';
+
 import { FaShippingFast } from 'react-icons/fa';
 import { GiShoppingBag } from 'react-icons/gi';
 import { IoChatboxEllipses, IoShieldCheckmarkSharp } from 'react-icons/io5';
