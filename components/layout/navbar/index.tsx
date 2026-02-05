@@ -7,13 +7,13 @@ import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
-const { SITE_NAME } = process.env;
+// const { SITE_NAME } = process.env;
 
 export async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-2">
+    <nav className="relative mx-auto flex max-w-7xl items-center justify-between p-4 py-4 lg:px-2">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -27,9 +27,9 @@ export async function Navbar() {
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
             <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+            {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
               {SITE_NAME}
-            </div>
+            </div> */}
           </Link>
           {menu.length ? (
             <ul className="hidden gap-6 text-sm md:flex md:items-center">

@@ -46,56 +46,6 @@ export default function LinksBar() {
           >
             FAQS
           </Link>
-          {/* <DropdownMenu open={pagesOpen} onOpenChange={setPagesOpen}>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="link"
-                className={cn(
-                  'flex items-center gap-1 p-0 text-sm font-medium',
-                  pagesOpen ? 'text-primary' : 'text-foreground'
-                )}
-              >
-                Pages
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>
-                <Link href="#">About Us</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="#">FAQ</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="#">Shipping & Returns</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <DropdownMenu open={blogsOpen} onOpenChange={setBlogsOpen}>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="link"
-                className={cn(
-                  'flex items-center gap-1 p-0 text-sm font-medium',
-                  blogsOpen ? 'text-primary' : 'text-foreground'
-                )}
-              >
-                Blogs
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>
-                <Link href="#">Latest Posts</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="#">Featured</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="#">Categories</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu> */}
         </nav>
         <div className="flex items-center space-x-10">
           <Link
