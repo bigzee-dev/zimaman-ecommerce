@@ -1,6 +1,6 @@
 'use client';
 
-// import { notoSans } from '@/app/fonts';
+import { lora } from '@/app/fonts';
 import { redBtn } from '@/app/ui/custom-classes';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -39,6 +39,16 @@ const categories = [
     name: 'Televisions',
     image: '/placeholder.svg?height=200&width=200',
     href: '/category/televisions'
+  },
+  {
+    name: 'Cars',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/cars'
+  },
+  {
+    name: 'Bots',
+    image: '/placeholder.svg?height=200&width=200',
+    href: '/category/bots'
   }
 ];
 
@@ -69,26 +79,28 @@ export default function CategoryCarousel() {
   };
 
   return (
-    <section className="w-full border border-neutral-300 bg-neutral-100 dark:border-transparent dark:bg-transparent">
-      <div className="mx-auto max-w-7xl px-4 py-12 md:px-2 lg:px-2">
-        <div className="mb-2 flex w-full items-center justify-between">
-          <div className="flex items-center text-yellow-600">
-            <BiSolidCategory className="mr-2 h-5 w-5" /> {/*text-[#925c11]*/}
-            <span className={`font-heading text-sm font-medium dark:text-neutral-300/80`}>
+    <section className="bg-darker w-full border border-neutral-300 dark:border-transparent">
+      <div className="mx-auto max-w-7xl px-4 py-12 pb-10 md:px-2 lg:px-2">
+        <div className="mb-4 flex w-full items-center justify-between">
+          <div className="flex items-center border-b-2 border-yellow-600 pb-1 text-yellow-600">
+            <BiSolidCategory className="mr-1.5 h-6 w-6" /> {/*text-[#925c11]*/}
+            <span className={`font-heading text-sm font-semibold dark:text-yellow-600`}>
               Categories
             </span>
           </div>
         </div>
 
         <div className="mb-10 flex items-center justify-between">
-          <h2 className="font-heading font-bold text-neutral-800 md:text-3xl dark:text-neutral-400">
+          <h2
+            className={`font-heading font-bold text-neutral-800 md:text-3xl dark:text-neutral-400`}
+          >
             Browse by Category
           </h2>
           <div className="flex space-x-2">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-xl border-gray-200"
+              className="bg-lighter rounded-xl border-border"
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
             >
@@ -98,7 +110,7 @@ export default function CategoryCarousel() {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-xl border-gray-200"
+              className="bg-lighter rounded-xl border-border"
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
             >
@@ -119,7 +131,7 @@ export default function CategoryCarousel() {
               href={category.href}
               className="flex min-w-[140px] snap-start flex-col items-center sm:min-w-[160px]"
             >
-              <div className="mb-4 flex h-[140px] w-[140px] items-center justify-center rounded-full bg-neutral-50 p-4 sm:h-[160px] sm:w-[160px] dark:bg-gray-200/95">
+              <div className="mb-4 flex h-[140px] w-[140px] items-center justify-center rounded-full border border-border bg-white p-4 sm:h-[160px] sm:w-[160px] dark:border-none dark:bg-neutral-200/95 dark:bg-neutral-50">
                 <Image
                   src="/img/spices/fhirsch/bpep1kg-cnv -tpng.png"
                   alt={category.name}
@@ -136,7 +148,7 @@ export default function CategoryCarousel() {
             </Link>
           ))}
         </div>
-        <div className="mt-4 flex w-full justify-center">
+        <div className="mt-10 flex w-full justify-center">
           <Link href="/search" className={redBtn} style={{ justifySelf: 'center' }}>
             View All Categories
           </Link>

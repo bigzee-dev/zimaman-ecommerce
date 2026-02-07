@@ -54,17 +54,17 @@ export async function EightItemGrid() {
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
   return (
-    <div className="w-full bg-neutral-800/40 py-12">
+    <div className="w-full py-12">
       <div className="mx-auto max-w-7xl px-2">
         <div className="mb-4 flex items-center">
-          <div className="flex items-center">
+          <div className="flex items-center border-b-2 border-red-600 pb-1">
             <FaTags className="mr-2 h-5 w-5 dark:text-red-700" />
-            <span className={` ${notoSans.className} text-sm font-medium text-neutral-300`}>
+            <span className={` ${notoSans.className} text-sm font-semibold dark:text-red-600`}>
               Specials
             </span>
           </div>
         </div>
-        <h2 className="mb-10 text-2xl font-bold dark:text-neutral-400 md:text-3xl">
+        <h2 className="mb-10 text-2xl font-bold text-neutral-400 md:text-3xl">
           This Months Specials
         </h2>
         <section className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4 md:grid-rows-2 lg:max-h-[calc(100vh-100px)]">

@@ -1,7 +1,19 @@
-import clsx from 'clsx';
-import LogoIcon from './icons/logo';
+'use client';
 
-export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
+import clsx from 'clsx';
+import DarkLogoIcon from './icons/darklogo';
+import LightLogoIcon from './icons/lightlogo';
+import { useDarkMode } from '@/hooks/useDarkMode';
+
+export default function FullLogo({ size }: { size?: 'sm' | undefined }) {
+  const { isDark, mounted } = useDarkMode();
+
+  if (!mounted) {
+    return null;
+  }
+
+  const LogoIcon = isDark ? DarkLogoIcon : LightLogoIcon;
+
   return (
     <div
     // className={clsx(

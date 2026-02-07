@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
-        heading: ['var(--font-lora)', 'serif'],
+        heading: ['var(--font-montserrat)', 'serif'],
         content: ['var(--font-noto-sans)', 'sans-serif']
       },
       keyframes: {
@@ -58,6 +58,9 @@ module.exports = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        darker: 'var(--bg-darker)',
+        lighter: 'var(--bg-lighter)',
+        border: 'var(--border)',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
@@ -86,7 +89,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
         },
-        border: 'hsl(var(--border))',
+
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {

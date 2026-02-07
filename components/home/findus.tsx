@@ -26,44 +26,45 @@ export default function FindUs() {
     }
   ];
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 md:py-16 md:pt-12">
-      <h2 className={`mb-4 w-full text-center text-2xl font-bold text-transparent md:text-6xl`}>
-        <span
-          className={`font-heading bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700 bg-clip-text`}
-        >
-          Find us Here
-        </span>
-      </h2>
-      <p className="font-content mx-auto mb-12 max-w-3xl text-center text-base font-medium text-neutral-400">
-        Come check out our shop in Maun! We're in the Old Mall, near Access Bank — opposite to CEDA
-        and Portsway Pharmacy.
-      </p>
-      <div className="grid grid-cols-1 gap-x-16 md:grid-cols-12">
-        {/* Left Container - Location */}
-        <div className="col-span-7 space-y-6">
-          <div className="relative aspect-[5/3] w-full overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src="/maun-map.png?height=606&width=838"
-              alt="Store location map"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-        {/* Right Container - How to Order */}
-        <div className="font-content col-span-5 space-y-7">
-          <h2
-            className={` ${lora.className} text-2xl font-semibold md:text-3xl dark:text-neutral-400`}
+    <div className="bg-darker w-full">
+      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16 md:pt-12">
+        <h2 className={`mb-4 w-full text-center text-2xl font-bold text-transparent md:text-6xl`}>
+          <span
+            className={` ${lora.className} bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700 bg-clip-text`}
           >
-            Old Mall, Maun
-          </h2>
-          <div className="grid w-full grid-cols-1">
-            {locations.map((location) => (
-              <Card
-                key={location.id}
-                className="relative overflow-hidden transition-shadow duration-300 hover:shadow-lg"
-              >
-                {/* <CardHeader className="pb-4">
+            Find us Here
+          </span>
+        </h2>
+        <p className="mx-auto mb-12 max-w-3xl text-center font-content text-base font-medium text-neutral-400">
+          Come check out our shop in Maun! We're in the Old Mall, near Access Bank — opposite to
+          CEDA and Portsway Pharmacy.
+        </p>
+        <div className="grid grid-cols-1 gap-x-16 md:grid-cols-12">
+          {/* Left Container - Location */}
+          <div className="col-span-7 space-y-6">
+            <div className="relative aspect-[5/3] w-full overflow-hidden rounded-lg shadow-lg">
+              <Image
+                src="/maun-map.png?height=606&width=838"
+                alt="Store location map"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          {/* Right Container - How to Order */}
+          <div className="col-span-5 space-y-7 font-content">
+            <h2
+              className={` ${lora.className} text-2xl font-semibold md:text-3xl dark:text-neutral-400`}
+            >
+              Old Mall, Maun
+            </h2>
+            <div className="grid w-full grid-cols-1">
+              {locations.map((location) => (
+                <Card
+                  key={location.id}
+                  className="relative overflow-hidden transition-shadow duration-300 hover:shadow-lg"
+                >
+                  {/* <CardHeader className="pb-4">
                   <div className="flex items-start justify-between">
                     <div>
                       <CardTitle className="mb-2 text-xl">{location.name}</CardTitle>
@@ -86,71 +87,72 @@ export default function FindUs() {
                   </div>
                 </CardHeader> */}
 
-                <CardContent className="space-y-4">
-                  {/* Address */}
-                  <div className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400" />
-                    <div className="text-sm">
-                      <p className="font-medium text-neutral-300">{location.address}</p>
-                      <p className="text-neutral-400">{location.city}</p>
+                  <CardContent className="space-y-4">
+                    {/* Address */}
+                    <div className="flex items-start gap-3">
+                      <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-neutral-400" />
+                      <div className="text-sm">
+                        <p className="font-medium text-neutral-300">{location.address}</p>
+                        <p className="text-neutral-400">{location.city}</p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Contact */}
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-sm">
-                      <Phone className="h-4 w-4 text-neutral-400" />
-                      <p className="text-neutral-300 hover:underline">{location.phone}</p>
+                    {/* Contact */}
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 text-sm">
+                        <Phone className="h-4 w-4 text-neutral-400" />
+                        <p className="text-neutral-300 hover:underline">{location.phone}</p>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm">
+                        <Mail className="h-4 w-4 text-neutral-400" />
+                        <a
+                          href={`mailto:${location.email}`}
+                          className="text-neutral-300 hover:underline"
+                        >
+                          {location.email}
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <Mail className="h-4 w-4 text-neutral-400" />
-                      <a
-                        href={`mailto:${location.email}`}
-                        className="text-neutral-300 hover:underline"
+
+                    {/* Hours */}
+                    <div className="flex items-start gap-3">
+                      <Clock className="mt-0.5 h-4 w-4 dark:text-neutral-400" />
+                      <div className="space-y-1 text-sm text-neutral-300">
+                        <p>
+                          <span className="font-medium dark:text-neutral-400">Mon-Fri:</span>{' '}
+                          {location.hours.weekdays}
+                        </p>
+                        <p>
+                          <span className="font-medium dark:text-neutral-400">Saturday:</span>{' '}
+                          {location.hours.saturday}
+                        </p>
+                        <p>
+                          <span className="font-medium dark:text-neutral-400">Sunday:</span>{' '}
+                          {location.hours.sunday}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 pt-4">
+                      <Link href="/contact" className={` ${redBtn} `}>
+                        Contact Us
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="flex h-[2.6rem] w-[2.6rem] items-center justify-center bg-neutral-200 p-1.5 text-base font-semibold text-neutral-800 hover:bg-blue-700"
                       >
-                        {location.email}
-                      </a>
+                        <MessageCircleMore className="h-6 w-6 text-red-700" />
+                      </Link>
                     </div>
-                  </div>
-
-                  {/* Hours */}
-                  <div className="flex items-start gap-3">
-                    <Clock className="mt-0.5 h-4 w-4 dark:text-neutral-400" />
-                    <div className="space-y-1 text-sm text-neutral-300">
-                      <p>
-                        <span className="font-medium dark:text-neutral-400">Mon-Fri:</span>{' '}
-                        {location.hours.weekdays}
-                      </p>
-                      <p>
-                        <span className="font-medium dark:text-neutral-400">Saturday:</span>{' '}
-                        {location.hours.saturday}
-                      </p>
-                      <p>
-                        <span className="font-medium dark:text-neutral-400">Sunday:</span>{' '}
-                        {location.hours.sunday}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex items-center gap-2 pt-4">
-                    <Link href="/contact" className={` ${redBtn} `}>
-                      Contact Us
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="flex h-[2.6rem] w-[2.6rem] items-center justify-center bg-neutral-200 p-1.5 text-base font-semibold text-neutral-800 hover:bg-blue-700"
-                    >
-                      <MessageCircleMore className="h-6 w-6 text-red-700" />
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 //       </div>

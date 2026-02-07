@@ -23,7 +23,7 @@ export default function HomePage() {
       <div className="relative z-10">
         <LinksBar />
       </div>
-      <div className="relative w-full py-12 dark:bg-neutral-800/40">
+      <div className="relative w-full py-12">
         <div
           className="pattern-bg default-fade z-0"
           style={{

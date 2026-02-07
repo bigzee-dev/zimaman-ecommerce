@@ -1,5 +1,11 @@
-import { Cairo, Expletus_Sans, Inter, Noto_Sans } from 'next/font/google';
+import { Cairo, Expletus_Sans, Inter, Noto_Sans, Montserrat } from 'next/font/google';
 import { Lora } from 'next/font/google';
+
+export const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: ['400', '500', '600', '700', '800']
+});
 
 export const lora = Lora({
   subsets: ['latin'],

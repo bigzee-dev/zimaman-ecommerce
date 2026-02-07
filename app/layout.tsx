@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en" className={`${GeistSans.variable} ${lora.variable} ${notoSans.variable}`}>
-      <body className="overflow-x-hidden bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-950 dark:text-neutral-300 dark:selection:text-white">
+      <body className="bg-lighter overflow-x-hidden text-black selection:bg-teal-300 dark:text-neutral-300 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
           <Navbar />
           <main>

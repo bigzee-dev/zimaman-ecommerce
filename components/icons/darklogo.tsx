@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-export default function LogoIcon(props: React.ComponentProps<'svg'>) {
+export default function DarkLogoIcon(props: React.ComponentProps<'svg'>) {
   return (
     <Image
-      src="/zimalogo-180x60.svg"
+      src="/zimalogodark.svg"
       alt="Zima Logo"
       height={60}
       width={180}
