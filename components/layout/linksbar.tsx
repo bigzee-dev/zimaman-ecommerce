@@ -16,7 +16,7 @@ export default async function LinksBar() {
   const collections = await getCollections();
 
   return (
-    <header className="via-0range-700 relative w-full bg-gradient-to-r from-[#d50c2d] to-red-800">
+    <header className="relative w-full bg-gradient-to-r from-[#d50c2d] to-red-800">
       <Image
         src="/red-bg.png"
         alt="red background"
@@ -85,7 +85,7 @@ export default async function LinksBar() {
         <div className="flex items-center space-x-10">
           <Link
             href="mailto:contact@example.com"
-            className="flex items-center gap-2 text-sm font-medium text-neutral-300 transition-colors hover:text-primary"
+            className="flex items-center gap-1.5 text-sm font-medium text-neutral-300 transition-colors hover:text-primary"
           >
             <Mail className="h-5 w-5 text-neutral-300" />
 
@@ -93,7 +93,7 @@ export default async function LinksBar() {
           </Link>
           <Link
             href="tel:+1234567890"
-            className="flex items-center gap-2 text-sm font-medium text-neutral-300 transition-colors hover:text-primary"
+            className="flex items-center gap-1.5 text-sm font-medium text-neutral-300 transition-colors hover:text-primary"
           >
             <Phone className="h-5 w-5 text-neutral-300" />
 
