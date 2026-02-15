@@ -1,6 +1,5 @@
 'use client';
 
-import { lora } from '@/app/fonts';
 import { redBtn } from '@/app/ui/custom-classes';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -8,51 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 import { BiSolidCategory } from 'react-icons/bi';
+import type { Collection } from 'lib/shopify/types';
 
-const categories = [
-  {
-    name: 'Watches',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/watches'
-  },
-  {
-    name: 'Mobile & Tablets',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/mobile-tablets'
-  },
-  {
-    name: 'Health & Sports',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/health-sports'
-  },
-  {
-    name: 'Home Appliances',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/home-appliances'
-  },
-  {
-    name: 'Games & Videos',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/games-videos'
-  },
-  {
-    name: 'Televisions',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/televisions'
-  },
-  {
-    name: 'Cars',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/cars'
-  },
-  {
-    name: 'Bots',
-    image: '/placeholder.svg?height=200&width=200',
-    href: '/category/bots'
-  }
-];
+interface CategoryCarouselProps {
+  collections: Collection[];
+}
 
-export default function CategoryCarousel() {
+export default function CategoryCarousel({ collections }: CategoryCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -79,7 +40,7 @@ export default function CategoryCarousel() {
   };
 
   return (
-    <section className="bg-darker w-full border border-neutral-300 dark:border-transparent">
+    <section className="w-full border border-neutral-300 bg-darker dark:border-transparent">
       <div className="mx-auto max-w-7xl px-4 py-12 pb-10 md:px-2 lg:px-2">
         <div className="mb-4 flex w-full items-center justify-between">
           <div className="flex items-center border-b-2 border-yellow-600 pb-1 text-yellow-600">
@@ -100,7 +61,7 @@ export default function CategoryCarousel() {
             <Button
               variant="outline"
               size="icon"
-              className="bg-lighter rounded-xl border-border"
+              className="rounded-xl border-border bg-lighter"
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
             >
@@ -110,7 +71,7 @@ export default function CategoryCarousel() {
             <Button
               variant="outline"
               size="icon"
-              className="bg-lighter rounded-xl border-border"
+              className="rounded-xl border-border bg-lighter"
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
             >
@@ -125,25 +86,28 @@ export default function CategoryCarousel() {
           className="scrollbar-hide flex snap-x gap-x-12 overflow-x-auto pb-6"
           onScroll={checkScrollability}
         >
-          {categories.map((category, index) => (
+          {collections.map((collection) => (
             <Link
-              key={index}
-              href={category.href}
-              className="flex min-w-[140px] snap-start flex-col items-center sm:min-w-[160px]"
+              key={collection.handle}
+              href={collection.path}
+              className="flex min-w-[140px] snap-start flex-col items-center sm:min-w-[190px]"
             >
-              <div className="mb-4 flex h-[140px] w-[140px] items-center justify-center rounded-full border border-border bg-white p-4 sm:h-[160px] sm:w-[160px] dark:border-none dark:bg-neutral-200/95 dark:bg-neutral-50">
-                <Image
-                  src="/img/spices/fhirsch/bpep1kg-cnv -tpng.png"
-                  alt={category.name}
-                  width={1024}
-                  height={1024}
-                  className="object-contain"
-                />
+              <div className="relative mb-4 flex h-[140px] w-[140px] items-center justify-center rounded-full border border-border bg-white p-4 sm:h-[190px] sm:w-[190px] dark:border-none dark:bg-neutral-200/95 dark:bg-neutral-50">
+                {collection.image && (
+                  <Image
+                    src={collection.image.url}
+                    alt={collection.image.altText || collection.title}
+                    fill
+                    // width={collection.image.width}
+                    // height={collection.image.height}
+                    className="rounded-full object-cover"
+                  />
+                )}
               </div>
               <span
                 className={`text-center text-sm font-medium uppercase text-neutral-600 dark:text-neutral-300`}
               >
-                {category.name}
+                {collection.title}
               </span>
             </Link>
           ))}

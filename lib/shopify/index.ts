@@ -324,10 +324,10 @@ export async function getCollections(): Promise<Collection[]> {
       title: 'All',
       description: 'All products',
       image: {
-        url: '/test.com',
-        altText: 'All products image',
-        width: 500,
-        height: 500
+        url: '/categories/all-products.png',
+        altText: 'All products',
+        width: 1024,
+        height: 1024
       },
       seo: {
         title: 'All',

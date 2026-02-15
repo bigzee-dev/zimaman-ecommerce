@@ -9,6 +9,7 @@ import { EightItemGrid } from 'components/grid/eight-items';
 import LocationOrdering from '@/components/home/how-to-order';
 import { Carousel } from 'components/carousel';
 import Footer from 'components/layout/footer';
+import { getCollections } from 'lib/shopify';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -17,7 +18,9 @@ export const metadata = {
   }
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const collections = await getCollections();
+
   return (
     <>
       <div className="relative z-10">
@@ -42,7 +45,7 @@ export default function HomePage() {
         <ThreeItemGrid />
       </div>
       <FeaturesSection />
-      <CategoryCarousel />
+      <CategoryCarousel collections={collections} />
       <FourItemGrid />
       <AboutUsCTA />
       <EightItemGrid />
