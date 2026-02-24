@@ -1,4 +1,5 @@
 import LinksBar from '@/components/layout/linksbar';
+import PromoBanner from '@/components/home/promo-banner';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import CategoryCarousel from 'components/categories';
 import FeaturesSection from 'components/features';
@@ -6,7 +7,7 @@ import { FourItemGrid } from 'components/grid/four-items';
 import AboutUsCTA from '@/components/layout/aboutus-cta';
 import FindUs from '@/components/home/findus';
 import { EightItemGrid } from 'components/grid/eight-items';
-import LocationOrdering from '@/components/home/how-to-order';
+import HowToOrder from '@/components/home/how-to-order';
 import { Carousel } from 'components/carousel';
 import Footer from 'components/layout/footer';
 import { getCollections } from 'lib/shopify';
@@ -26,6 +27,7 @@ export default async function HomePage() {
       <div className="relative z-10">
         <LinksBar />
       </div>
+      <PromoBanner />
       <div className="relative w-full py-12">
         <div
           className="pattern-bg default-fade z-0"
@@ -42,6 +44,7 @@ export default async function HomePage() {
             opacity: 0
           }}
         ></div>
+
         <ThreeItemGrid />
       </div>
       <FeaturesSection />
@@ -51,7 +54,7 @@ export default async function HomePage() {
       <EightItemGrid />
       <FindUs />
       <EightItemGrid />
-      <LocationOrdering />
+      <HowToOrder />
       <Carousel />
       <Footer />
     </>

@@ -39,12 +39,12 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <div className="bg-lighter w-full pb-14 pt-0 font-content">
+    <div className="w-full bg-lighter pb-14 pt-0 font-content">
       <div className="mx-auto max-w-4xl">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-4">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center gap-y-4">
-              <div className="mr-2 flex h-14 w-14 items-center justify-center rounded-full border border-gray-400 bg-neutral-50 p-3 text-hetzgray dark:border-gray-500/25">
+              <div className="mr-2 flex h-14 w-14 items-center justify-center rounded-full border border-gray-400 bg-neutral-50 p-3 text-hetzred dark:border-gray-500/25">
                 <feature.icon size={40} strokeWidth={1.5} />
               </div>
               <div className="text-center">

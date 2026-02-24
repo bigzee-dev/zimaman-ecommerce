@@ -1,13 +1,9 @@
 import { notoSans } from '@/app/fonts';
+import ContactForm from '@/components/home/contact-form';
 
-import { Card, CardContent } from '@/components/ui/card';
-import { CheckCircle } from 'lucide-react';
-import Link from 'next/link';
-import { transparentBtn, whiteBtn } from '@/app/ui/custom-classes';
-
-export default function LocationOrdering() {
+export default function HowToOrder() {
   return (
-    <div className="bg-darker w-full">
+    <div className="w-full bg-darker">
       <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <div className="grid grid-cols-1">
           {/* Left Container - Location */}
@@ -72,31 +68,7 @@ export default function LocationOrdering() {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-12 h-[250px] w-full max-w-6xl rounded-2xl bg-gradient-to-r from-blue-900 via-red-700 to-yellow-700">
-          <div className="text-center">
-            <Card className="inline-block">
-              <CardContent className="p-8">
-                <div className="mb-4 flex items-center justify-center gap-3">
-                  <CheckCircle className="h-8 w-8 text-neutral-300/90" />
-                  <h3 className={` ${notoSans.className} text-3xl font-semibold text-neutral-200`}>
-                    Ready to Get Started?
-                  </h3>
-                </div>
-                <p className="mb-6 max-w-md text-neutral-300">
-                  Browse our products now and experience our seamless ordering process.
-                </p>
-                <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                  <Link href="/contact" className={` ${transparentBtn} `}>
-                    All Products
-                  </Link>
-                  <Link href="/contact" className={` ${whiteBtn} `}>
-                    About Us
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+        <ContactForm />
       </section>
     </div>
   );
