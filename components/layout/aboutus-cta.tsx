@@ -16,10 +16,10 @@ export default function AboutUsCTA() {
   return (
     <section className="w-full bg-darker px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="overflow-hidden rounded-xl border border-neutral-800">
+        <div className="overflow-hidden rounded-xl border border-neutral-700">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* ── Left — Content ── */}
-            <div className="relative flex flex-col justify-center overflow-hidden p-8 md:p-12">
+            <div className="relative flex flex-col justify-center overflow-hidden p-8 py-10 md:px-12">
               {/* Decorative ghost year — sits behind content */}
               <span
                 aria-hidden="true"
@@ -36,7 +36,7 @@ export default function AboutUsCTA() {
 
                 {/* Heading */}
                 <h2
-                  className={`${lora.className} mb-5 text-3xl font-semibold leading-tight text-neutral-100 md:text-4xl`}
+                  className={`mb-5 font-heading text-3xl font-bold leading-tight text-neutral-300 md:text-4xl`}
                 >
                   Selling Quality{' '}
                   <span className="bg-gradient-to-r from-blue-500 via-red-600 to-yellow-500 bg-clip-text text-transparent">
@@ -55,10 +55,10 @@ export default function AboutUsCTA() {
                 <div className="mb-8 grid grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-5">
                   {stats.map((stat) => (
                     <div key={stat.label} className="px-4 text-center first:pl-0 last:pr-0">
-                      <p className={`${lora.className} text-2xl font-semibold text-neutral-200`}>
+                      <p className={`font-heading text-4xl font-semibold text-neutral-200`}>
                         {stat.value}
                       </p>
-                      <p className="mt-0.5 font-content text-[10px] uppercase tracking-[0.15em] text-neutral-500">
+                      <p className="mt-1 font-content text-[10px] uppercase tracking-[0.15em] text-neutral-500">
                         {stat.label}
                       </p>
                     </div>
@@ -66,14 +66,14 @@ export default function AboutUsCTA() {
                 </div>
 
                 {/* Feature list */}
-                <ul className="mb-10 space-y-3">
+                <ul className="mb-8 space-y-3">
                   {features.map((feature) => (
                     <li
                       key={feature}
-                      className={`${notoSans.className} flex items-start gap-3 text-sm text-neutral-400`}
+                      className={`${notoSans.className} flex items-center gap-3 text-sm text-neutral-400`}
                     >
-                      <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full border border-red-700/40 bg-red-700/15">
-                        <Check className="h-2.5 w-2.5 text-red-500" />
+                      <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-red-500 bg-red-700/15">
+                        <Check className="h-3.5 w-3.5 text-red-500" />
                       </span>
                       {feature}
                     </li>
@@ -95,7 +95,7 @@ export default function AboutUsCTA() {
             {/* ── Right — Image ── */}
             <div className="relative min-h-[320px] lg:min-h-0">
               <Image
-                src="/utensils.jpg"
+                src="/2151.jpg"
                 alt="Zima Packaging — quality products since 2013"
                 fill
                 className="object-cover"

@@ -11,6 +11,9 @@ module.exports = {
       lg: '1024px' // Large screens greater than or equal to 1024
     },
     extend: {
+      fontSize: {
+        xs: '0.79rem'
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         heading: ['var(--font-montserrat)', 'serif'],

@@ -20,11 +20,11 @@ export default function HowToOrder() {
         </div> */}
 
           {/* Right Container - How to Order */}
-          <div className="space-y-7">
-            <h2 className="text-2xl font-bold md:text-3xl dark:text-neutral-400">
-              How to order from Us
+          <div className="space-y-8">
+            <h2 className="font-heading text-2xl font-semibold md:text-3xl dark:text-neutral-300">
+              How to order from us:
             </h2>
-            <div className="grid w-full grid-cols-2 gap-x-16 gap-y-4">
+            <div className="grid w-full grid-cols-2 gap-x-16 gap-y-6">
               {[
                 {
                   step: 1,
@@ -59,15 +59,14 @@ export default function HowToOrder() {
                     >
                       {item.title}
                     </h3>
-                    <p className="font-sans text-[0.94rem] dark:text-neutral-400">
-                      {item.description}
-                    </p>
+                    <p className="font-content text-sm dark:text-neutral-400">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
+        <div className="my-16 w-full border-t border-neutral-700"></div>
         <ContactForm />
       </section>
     </div>

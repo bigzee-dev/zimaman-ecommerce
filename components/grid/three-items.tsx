@@ -2,6 +2,7 @@ import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function ThreeItemGridItem({
   item,
@@ -21,6 +22,11 @@ function ThreeItemGridItem({
         href={`/product/${item.handle}`}
         prefetch={true}
       >
+        {size === 'full' && (
+          <div className="absolute right-16 top-7 z-10 h-32 w-40">
+            <Image src="/bestseller.png" alt="best seller" fill className="object-cover" />
+          </div>
+        )}
         <GridTileImage
           src={item.featuredImage.url}
           fill

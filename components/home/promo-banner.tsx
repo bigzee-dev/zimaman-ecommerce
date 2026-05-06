@@ -1,10 +1,9 @@
-import { lora } from '@/app/fonts';
-import { Tag } from 'lucide-react';
+import Image from 'next/image';
 
 const categories = [
   {
     label: 'Plastic Bags',
-    style: 'border-red-700/30 bg-red-700/10 text-red-400',
+    style: 'border-red-600/60 bg-red-700/10 text-red-400',
     dot: 'bg-red-500'
   },
   {
@@ -19,7 +18,7 @@ const categories = [
   },
   {
     label: 'Food Service Supplies',
-    style: 'border-red-700/30 bg-red-700/10 text-red-400',
+    style: 'border-red-600/50 bg-red-700/10 text-red-400',
     dot: 'bg-red-500'
   },
   {
@@ -37,7 +36,7 @@ const categories = [
 export default function PromoBanner() {
   return (
     <div className="mx-auto max-w-7xl px-2 pb-0 pt-10">
-      <div className="relative overflow-hidden rounded-xl border border-neutral-800 bg-darker px-6 md:px-10">
+      <div className="relative overflow-hidden rounded-xl border border-neutral-700 bg-gradient-to-br from-blue-950/50 via-blue-900/20 to-red-950/30 px-6 md:px-10">
         {/* Ambient background glows */}
         <div className="pointer-events-none absolute -left-20 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-red-900/20 blur-3xl" />
         <div className="pointer-events-none absolute -top-8 right-24 h-48 w-48 rounded-full bg-blue-900/15 blur-3xl" />
@@ -48,7 +47,7 @@ export default function PromoBanner() {
           <div>
             {/* Headline */}
             <h2
-              className={`${lora.className} mb-4 text-5xl font-semibold leading-[1.2] text-neutral-100 md:text-6xl`}
+              className={`mb-4 font-heading text-5xl font-bold leading-[1.15] text-neutral-200 md:text-7xl`}
             >
               Stock Up &amp; <br />
               <span className="">Save 15%</span>
@@ -56,13 +55,13 @@ export default function PromoBanner() {
 
             {/* Body */}
             <p className="mb-6 max-w-sm font-content text-sm leading-relaxed text-neutral-400">
-              This August only — get <span className="font-semibold text-neutral-200">15% off</span>{' '}
+              This August only - get <span className="font-semibold text-neutral-200">15% off</span>{' '}
               your entire order.
             </p>
 
             {/* Category tags */}
             <div>
-              <p className="mb-3 font-content text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-600">
+              <p className="mb-3 font-content text-[10px] font-semibold uppercase tracking-[0.25em] text-neutral-500">
                 Shop across
               </p>
               <div className="flex flex-wrap gap-2">
@@ -72,6 +71,7 @@ export default function PromoBanner() {
                     className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-content text-xs font-medium ${cat.style}`}
                   >
                     <span className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${cat.dot}`} />
+
                     {cat.label}
                   </span>
                 ))}
@@ -80,10 +80,17 @@ export default function PromoBanner() {
           </div>
 
           {/* ── Right — Isometric Box Illustration ── */}
-          <div className="flex items-center justify-center">
+          <div className="relative flex min-h-[320px] items-center justify-center">
+            <Image
+              src="/happylady.png"
+              alt="Isometric illustration of stacked boxes with a 15% off badge"
+              width={1500}
+              height={1000}
+              className="relative z-10 w-full max-w-[300px] md:max-w-[550px]"
+            />
             <svg
               viewBox="0 0 280 210"
-              className="w-full max-w-[300px] md:max-w-[340px]"
+              className="absolute left-1/2 top-0 z-0 w-full max-w-[300px] -translate-x-1/2 md:max-w-[550px]"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
@@ -103,11 +110,11 @@ export default function PromoBanner() {
               <ellipse cx="200" cy="160" rx="80" ry="55" fill="url(#pb-gold-glow)" />
 
               {/* ── Hero box — centre (red) ── */}
-              <polygon points="140,16 192,42 140,68 88,42" fill="#dc2626" />
+              {/* <polygon points="140,16 192,42 140,68 88,42" fill="#dc2626" />
               <polygon points="88,42 140,68 140,116 88,90" fill="#7f1d1d" />
-              <polygon points="140,68 192,42 192,90 140,116" fill="#991b1b" />
+              <polygon points="140,68 192,42 192,90 140,116" fill="#991b1b" /> */}
               {/* Tape cross */}
-              <line
+              {/* <line
                 x1="140"
                 y1="16"
                 x2="140"
@@ -124,7 +131,7 @@ export default function PromoBanner() {
                 stroke="#fca5a5"
                 strokeWidth="1.2"
                 strokeOpacity="0.35"
-              />
+              /> */}
               {/* Label on right face */}
               <rect x="152" y="76" width="22" height="14" rx="1" fill="#b91c1c" />
               <line
@@ -147,7 +154,7 @@ export default function PromoBanner() {
               />
 
               {/* ── Left box — dark neutral ── */}
-              <polygon points="75,106 118,128 75,150 32,128" fill="#3d3d3d" />
+              {/* <polygon points="75,106 118,128 75,150 32,128" fill="#3d3d3d" />
               <polygon points="32,128 75,150 75,186 32,164" fill="#1c1c1c" />
               <polygon points="75,150 118,128 118,164 75,186" fill="#2a2a2a" />
               <line
@@ -167,10 +174,10 @@ export default function PromoBanner() {
                 stroke="#525252"
                 strokeWidth="1"
                 strokeOpacity="0.5"
-              />
+              /> */}
 
               {/* ── Right box — amber/gold ── */}
-              <polygon points="205,106 248,128 205,150 162,128" fill="#a16207" />
+              {/* <polygon points="205,106 248,128 205,150 162,128" fill="#a16207" />
               <polygon points="162,128 205,150 205,186 162,164" fill="#713f12" />
               <polygon points="205,150 248,128 248,164 205,186" fill="#854d0e" />
               <line
@@ -190,7 +197,7 @@ export default function PromoBanner() {
                 stroke="#fbbf24"
                 strokeWidth="1"
                 strokeOpacity="0.3"
-              />
+              /> */}
 
               {/* ── Discount badge ── */}
               <circle cx="218" cy="36" r="33" fill="#dc2626" />
@@ -332,7 +339,7 @@ export default function PromoBanner() {
         </div>
 
         {/* Brand accent bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-800 via-red-600 to-yellow-500" />
+        {/* <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-800 via-red-600 to-yellow-500" /> */}
       </div>
     </div>
   );

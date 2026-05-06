@@ -12,7 +12,7 @@ export default function FindUs() {
             <p className="mb-3 font-content text-[11px] font-semibold uppercase tracking-[0.3em] text-neutral-500">
               Visit Us In Person
             </p>
-            <h2 className="text-3xl font-bold md:text-5xl">
+            <h2 className="text-4xl font-bold md:text-6xl">
               <span
                 className={`${lora.className} bg-gradient-to-r from-blue-500 via-red-600 to-yellow-500 bg-clip-text text-transparent`}
               >
@@ -20,14 +20,14 @@ export default function FindUs() {
               </span>
             </h2>
           </div>
-          <p className="max-w-sm font-content text-sm leading-relaxed text-neutral-400 md:text-right">
-            Come check out our shop in Maun. We&apos;re in the Old Mall, near Access Bank — opposite
+          <p className="max-w-sm font-content text-sm leading-relaxed text-neutral-300 md:text-right">
+            Come check out our shop in Maun. We&apos;re in the Old Mall, near Access Bank - opposite
             CEDA and Portsway Pharmacy.
           </p>
         </div>
 
         {/* ── Main Card ── */}
-        <div className="overflow-hidden rounded-xl border border-neutral-800">
+        <div className="overflow-hidden rounded-xl border border-neutral-700">
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* Left — Map Image */}
             <div className="relative col-span-7">
@@ -73,10 +73,10 @@ export default function FindUs() {
                   <div className="flex items-start gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-600" />
                     <div>
-                      <p className="font-content text-sm font-medium text-neutral-200">
+                      <p className="font-content text-base font-medium text-neutral-200">
                         Old Mall, Maun
                       </p>
-                      <p className="mt-1 font-content text-xs leading-relaxed text-neutral-500">
+                      <p className="mt-1 font-content text-sm leading-relaxed text-neutral-400">
                         Next to Access Bank, CEDA
                         <br />
                         &amp; Portsway Pharmacy
@@ -95,7 +95,7 @@ export default function FindUs() {
                   <div className="space-y-3">
                     <a href="tel:+26772664512" className="group flex items-center gap-3">
                       <Phone className="h-4 w-4 flex-shrink-0 text-neutral-600 transition-colors group-hover:text-red-600" />
-                      <span className="font-content text-xs text-neutral-400 transition-colors group-hover:text-neutral-200">
+                      <span className="font-content text-sm text-neutral-400 transition-colors group-hover:text-neutral-200">
                         (267) 72664512 / 75534775
                       </span>
                     </a>
@@ -104,7 +104,7 @@ export default function FindUs() {
                       className="group flex items-center gap-3"
                     >
                       <Mail className="h-4 w-4 flex-shrink-0 text-neutral-600 transition-colors group-hover:text-red-600" />
-                      <span className="break-all font-content text-xs text-neutral-400 transition-colors group-hover:text-neutral-200">
+                      <span className="break-all font-content text-sm text-neutral-400 transition-colors group-hover:text-neutral-200">
                         enquiries@zimapackaging.co.bw
                       </span>
                     </a>

@@ -105,7 +105,7 @@ export default function CategoryCarousel({ collections }: CategoryCarouselProps)
                 )}
               </div>
               <span
-                className={`text-center text-sm font-medium uppercase text-neutral-600 dark:text-neutral-300`}
+                className={`text-center text-base font-medium uppercase text-neutral-600 dark:text-neutral-300`}
               >
                 {collection.title}
               </span>

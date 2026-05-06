@@ -44,16 +44,16 @@ export default function FeaturesSection() {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-4">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center gap-y-4">
-              <div className="mr-2 flex h-14 w-14 items-center justify-center rounded-full border border-gray-400 bg-neutral-50 p-3 text-hetzred dark:border-gray-500/25">
-                <feature.icon size={40} strokeWidth={1.5} />
+              <div className="mr-2 flex h-16 w-16 items-center justify-center rounded-full border border-gray-400 bg-neutral-50/85 p-3 text-hetzred dark:border-gray-500/25">
+                <feature.icon size={45} strokeWidth={1.5} />
               </div>
               <div className="text-center">
                 <h3
-                  className={`whitespace-nowrap text-lg font-semibold text-[#212222] dark:text-darkmain`}
+                  className={`whitespace-nowrap font-content text-base font-medium text-neutral-200`}
                 >
                   {feature.title}
                 </h3>
-                <p className="mt-1 font-sans text-sm text-gray-600 dark:text-darkmuted">
+                <p className="mt-1 font-content text-xs text-gray-600 dark:text-neutral-400">
                   {feature.description}
                 </p>
               </div>
