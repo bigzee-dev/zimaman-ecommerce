@@ -4,6 +4,7 @@ import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
@@ -13,7 +14,7 @@ export async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <div className="bg-darker w-full">
+    <div className="w-full bg-darker">
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between p-4 py-4 lg:px-2">
         <div className="block flex-none md:hidden">
           <Suspense fallback={null}>
@@ -53,7 +54,25 @@ export async function Navbar() {
               <Search />
             </Suspense>
           </div>
-          <div className="flex justify-end md:w-1/3">
+          <div className="flex items-center justify-end gap-6 md:w-1/3">
+            <a
+              href={process.env.FACEBOOK_PAGE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+              className="group flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-all hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+            >
+              <FaFacebook size={17} />
+            </a>
+            <a
+              href="https://wa.me/26775847845"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+              className="group flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+            >
+              <FaWhatsapp size={18} />
+            </a>
             <CartModal />
           </div>
         </div>
