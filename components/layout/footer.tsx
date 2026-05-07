@@ -58,7 +58,7 @@ export default async function Footer() {
             </li>
             <li>
               <a
-                href={process.env.FACEBOOK_PAGE_URL}
+                href={process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 text-neutral-500 transition-colors hover:text-[#1877F2] dark:text-neutral-400 dark:hover:text-[#1877F2]"

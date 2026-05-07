@@ -56,7 +56,7 @@ export async function Navbar() {
           </div>
           <div className="flex items-center justify-end gap-6 md:w-1/3">
             <a
-              href={process.env.FACEBOOK_PAGE_URL}
+              href={process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit our Facebook page"
