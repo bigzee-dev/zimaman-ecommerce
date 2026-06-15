@@ -23,6 +23,18 @@ export const metadata = {
     default: SITE_NAME!,
     template: `%s | ${SITE_NAME}`
   },
+  icons: {
+    icon: [
+      {
+        url: '/icon-light.png',
+        media: '(prefers-color-scheme: light)'
+      },
+      {
+        url: '/icon-dark.png',
+        media: '(prefers-color-scheme: dark)'
+      }
+    ]
+  },
   robots: {
     follow: true,
     index: true

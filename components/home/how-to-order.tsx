@@ -1,25 +1,12 @@
 import { notoSans } from '@/app/fonts';
-import ContactForm from '@/components/home/contact-form';
+import Contact from '@/components/home/contactlinks';
 
 export default function HowToOrder() {
   return (
     <div className="w-full bg-darker">
       <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        {/* Top Container - How to Order */}
         <div className="grid grid-cols-1">
-          {/* Left Container - Location */}
-          {/* <div className="space-y-6">
-          <h2 className="text-2xl font-bold dark:text-neutral-400 md:text-3xl">Find us here</h2>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src="/maun-map.png?height=606&width=838"
-              alt="Store location map"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div> */}
-
-          {/* Right Container - How to Order */}
           <div className="space-y-8">
             <h2 className="font-heading text-2xl font-semibold md:text-3xl dark:text-neutral-300">
               How to order from us:
@@ -67,7 +54,8 @@ export default function HowToOrder() {
           </div>
         </div>
         <div className="my-16 w-full border-t border-neutral-700"></div>
-        <ContactForm />
+        {/* Bottom Container - Contact Us */}
+        <Contact />
       </section>
     </div>
   );
