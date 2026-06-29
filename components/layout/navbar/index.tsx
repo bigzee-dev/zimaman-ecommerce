@@ -29,9 +29,6 @@ export async function Navbar() {
               className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
             >
               <FullLogo />
-              {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div> */}
             </Link>
             {menu.length ? (
               <ul className="hidden gap-6 text-sm md:flex md:items-center">
@@ -54,24 +51,24 @@ export async function Navbar() {
               <Search />
             </Suspense>
           </div>
-          <div className="flex items-center justify-end gap-6 md:w-1/3">
+          <div className="flex items-center justify-end gap-5 md:w-1/3">
             <a
               href={process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit our Facebook page"
-              className="group flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-all hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+              className="group hidden h-10 w-10 items-center justify-center rounded-full border border-neutral-400/90 bg-lighter text-neutral-600 transition-all hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white sm:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
             >
-              <FaFacebook size={17} />
+              <FaFacebook size="1.4em" />
             </a>
             <a
               href="https://wa.me/26775847845"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat with us on WhatsApp"
-              className="group flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+              className="group hidden h-10 w-10 items-center justify-center rounded-full border border-neutral-400/90 bg-white text-neutral-600 transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white sm:flex dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
             >
-              <FaWhatsapp size={18} />
+              <FaWhatsapp size="1.4em" />
             </a>
             <CartModal />
           </div>

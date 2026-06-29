@@ -11,6 +11,7 @@ import { getCollections } from 'lib/shopify';
 import { Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ContactButton } from './contact-button';
 
 export default async function LinksBar() {
   const collections = await getCollections();
@@ -24,15 +25,15 @@ export default async function LinksBar() {
         height={100}
         className="absolute inset-0 h-full w-full object-cover opacity-5"
       />
-      <div className="relative z-10 mx-auto flex h-16 max-w-7xl items-center justify-between px-2 font-content">
+      <div className="relative z-10 mx-auto flex h-12 max-w-7xl items-center justify-between px-4 font-content md:h-16 md:px-6">
         <NavigationMenu>
-          <NavigationMenuList className="flex items-center space-x-5 text-neutral-200">
+          <NavigationMenuList className="flex items-center gap-1 text-neutral-200 md:gap-2">
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-sm text-neutral-200 transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[state=open]:bg-transparent dark:text-neutral-300">
+              <NavigationMenuTrigger className="bg-transparent px-3 py-2 text-xs text-neutral-200 transition-colors hover:bg-red-700 hover:text-white focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[state=open]:bg-transparent md:px-4 md:text-sm dark:text-neutral-300">
                 Shop by Category
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-x-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ul className="grid w-[90vw] max-w-[600px] grid-cols-2 gap-1 bg-darker p-4 md:w-[500px] lg:w-[600px]">
                   {collections.map((collection) => (
                     <li key={collection.handle}>
                       <NavigationMenuLink asChild>
@@ -53,52 +54,49 @@ export default async function LinksBar() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="hidden md:flex">
               <Link href="#" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <span className="bg-transparent text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
+                  <span className="px-1 text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
                     About us
                   </span>
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="hidden md:flex">
               <Link href="#" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <span className="bg-transparent text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
+                  <span className="px-1 text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
                     Contact
                   </span>
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="hidden md:flex">
               <Link href="#" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <span className="bg-transparent text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
-                    FAQS
+                  <span className="px-1 text-sm text-neutral-200 transition-colors hover:text-white dark:text-neutral-300">
+                    FAQs
                   </span>
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center space-x-10">
-          <Link
-            href="mailto:contact@example.com"
-            className="flex items-center gap-1.5 text-sm text-neutral-300 transition-colors hover:text-primary"
-          >
-            <Mail className="h-5 w-5 text-neutral-300" />
 
-            <span className="hidden sm:inline">sales@zimapackaging.com</span>
-          </Link>
-          <Link
-            href="tel:+1234567890"
-            className="flex items-center gap-1.5 text-sm text-neutral-300 transition-colors hover:text-primary"
-          >
-            <Phone className="h-5 w-5 text-neutral-300" />
-
-            <span className="hidden sm:inline">(+267) 72537524</span>
-          </Link>
+        <div className="flex items-center gap-4 md:gap-8">
+          <ContactButton
+            href="mailto:sales@zimapackaging.com"
+            icon={<Mail className="h-4 w-4 md:h-5 md:w-5" />}
+            label="Email us"
+            displayText="sales@zimapackaging.com"
+          />
+          <ContactButton
+            href="tel:+26772537524"
+            icon={<Phone className="h-4 w-4 md:h-5 md:w-5" />}
+            label="Call us"
+            displayText="(+267) 72537524"
+          />
         </div>
       </div>
     </header>

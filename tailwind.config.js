@@ -63,6 +63,9 @@ module.exports = {
         foreground: 'hsl(var(--foreground))',
         darker: 'var(--bg-darker)',
         lighter: 'var(--bg-lighter)',
+        txtmain: 'var(--text-darker)',
+        txtmuted: 'var(--text-muted)',
+        txtlight: 'var(--text-lighter)',
         border: 'var(--border)',
         card: {
           DEFAULT: 'hsl(var(--card))',

@@ -46,9 +46,12 @@ button {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --bg-darker: #f1f2f2; /* darker shade of white */
-    --bg-lighter: #fafafa; /* lighter shade of white */
-    --border: #bebebe;
+    --bg-darker: #faf7f0; /* darker shade of white */
+    --bg-lighter: #fdfbf6; /* lighter shade of white */
+    --text-muted: #737373; /* neutral-500 */
+    --text-lighter: #525252; /* neutral-600 */
+    --text-darker: #262626; /* neutral-800 */
+    --border: rgb(163 163 163 / 0.9);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -79,6 +82,9 @@ button {
       --chart-5: 340 75% 55%;
       --bg-darker: #121212; /* neutral-950, darker shade of black */
       --bg-lighter: #202020; /* lighter shade of black */
+      --text-muted: #6b7280; /* neutral-500 */
+      --text-lighter: #9ca3af; /* neutral-600 */
+      --text-darker: #374151; /* neutral-700 */
       --border: #404040;
     }
   }
@@ -107,14 +113,22 @@ button {
     linear-gradient(to right, #9696ff 3.3000000000000003px, transparent 3.3000000000000003px);
   background-size: 70px 70px;
   @media (max-width: 768px) {
-    width: calc(100% + 4rem);
-    height: calc(100% + 4rem);
-    top: -1rem;
-    left: -1rem;
-    right: -3rem;
-    bottom: -3rem;
-    background-size: 30px 30px;
+    display: none;
   }
+}
+
+.pattern-weave {
+  background-image: linear-gradient(
+    135deg,
+    rgba(184, 85, 46, 0.1) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(184, 85, 46, 0.1) 50%,
+    rgba(148, 119, 107, 0.1) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 18px 18px;
 }
 
 .default-fade {

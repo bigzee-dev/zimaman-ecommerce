@@ -12,7 +12,7 @@ export async function Carousel() {
   const carouselProducts = [...products, ...products, ...products];
 
   return (
-    <div className="max-w-screen w-full bg-neutral-800/40 pb-6 pt-6">
+    <div className="max-w-screen hidden w-full bg-neutral-700 pb-6 pt-6 md:block dark:bg-neutral-800/40">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
           <li

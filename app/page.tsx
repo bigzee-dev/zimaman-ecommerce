@@ -30,14 +30,14 @@ export default async function HomePage() {
       <PromoBanner />
       <div className="relative w-full py-12">
         <div
-          className="pattern-bg default-fade z-0"
+          className="pattern-bg default-fade pointer-events-none"
           style={{
-            opacity: 0.2,
+            opacity: 0.3,
             transition: 'opacity 0.5s ease-in-out'
           }}
         ></div>
         <div
-          className="pattern-bg z-0"
+          className="pattern-bg pointer-events-none"
           style={{
             WebkitMask: `radial-gradient(circle at 50% 50%,  rgb(15 23 42) 0%, transparent 35%)`,
             mask: `radial-gradient(circle at 50% 50%,  rgb(15 23 42) 0%, transparent 35%)`,

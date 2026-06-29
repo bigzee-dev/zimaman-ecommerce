@@ -59,7 +59,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       lang="en"
       className={`${GeistSans.variable} ${lora.variable} ${notoSans.variable} ${montserrat.variable} `}
     >
-      <body className="overflow-x-hidden bg-lighter text-black selection:bg-teal-300 dark:text-neutral-300 dark:selection:text-white">
+      <body className="overflow-x-hidden bg-darker text-black selection:bg-teal-300 dark:text-neutral-300 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
           <Navbar />
           <main>

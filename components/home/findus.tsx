@@ -13,21 +13,17 @@ export default function FindUs() {
               Visit Us In Person
             </p>
             <h2 className="text-4xl font-bold md:text-6xl">
-              <span
-                className={`${lora.className} bg-gradient-to-r from-blue-500 via-red-600 to-yellow-500 bg-clip-text text-transparent`}
-              >
-                Find Us Here
-              </span>
+              <span className={`font-heding text-txt-main text-6xl font-bold`}>Find Us Here</span>
             </h2>
           </div>
-          <p className="max-w-sm font-content text-sm leading-relaxed text-neutral-300 md:text-right">
+          <p className="text-txtmain max-w-sm font-content text-sm leading-relaxed md:text-right">
             Come check out our shop in Maun. We&apos;re in the Old Mall, near Access Bank - opposite
             CEDA and Portsway Pharmacy.
           </p>
         </div>
 
         {/* ── Main Card ── */}
-        <div className="overflow-hidden rounded-xl border border-neutral-700">
+        <div className="overflow-hidden rounded-xl">
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* Left — Map Image */}
             <div className="relative col-span-7">
@@ -63,7 +59,9 @@ export default function FindUs() {
             </div>
 
             {/* Right — Info Panel */}
-            <div className="col-span-5 flex flex-col justify-between bg-neutral-900/70 p-8 md:p-10">
+            <div className="relative col-span-5 flex flex-col justify-between bg-neutral-900 p-8 md:p-10 dark:bg-neutral-900/70">
+              <div className="pattern-weave pointer-events-none absolute inset-0 opacity-25" />
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-red-800 blur-3xl" />
               <div className="space-y-7">
                 {/* Address */}
                 <div>
@@ -160,7 +158,7 @@ export default function FindUs() {
           </div>
 
           {/* Brand accent bar */}
-          <div className="h-[3px] bg-gradient-to-r from-blue-800 via-red-600 to-yellow-500" />
+          {/* <div className="h-[3px] bg-gradient-to-r from-blue-800 via-red-600 to-yellow-500" /> */}
         </div>
       </section>
     </div>

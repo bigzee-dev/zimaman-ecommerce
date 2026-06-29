@@ -39,21 +39,19 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <div className="w-full bg-lighter pb-14 pt-0 font-content">
+    <div className="w-full bg-transparent pb-14 pt-0 font-content">
       <div className="mx-auto max-w-4xl">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-4">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col items-center gap-y-4">
-              <div className="mr-2 flex h-16 w-16 items-center justify-center rounded-full border border-gray-400 bg-neutral-50/85 p-3 text-hetzred dark:border-gray-500/25">
-                <feature.icon size={45} strokeWidth={1.5} />
+              <div className="mr-2 flex h-20 w-20 items-center justify-center rounded-full border border-border bg-lighter p-3 text-red-800 dark:border-gray-500/25">
+                <feature.icon size="3em" strokeWidth={1.5} />
               </div>
               <div className="text-center">
-                <h3
-                  className={`whitespace-nowrap font-content text-base font-medium text-neutral-200`}
-                >
+                <h3 className={`text-txtmain whitespace-nowrap font-content text-lg font-semibold`}>
                   {feature.title}
                 </h3>
-                <p className="mt-1 font-content text-xs text-gray-600 dark:text-neutral-400">
+                <p className="text-txtmuted mt-1 font-content text-sm text-neutral-500 dark:text-neutral-400">
                   {feature.description}
                 </p>
               </div>

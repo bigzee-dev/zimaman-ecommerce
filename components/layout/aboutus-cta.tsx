@@ -1,7 +1,7 @@
 import { lora, notoSans } from '@/app/fonts';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { FaCheckCircle } from 'react-icons/fa';
 import { redBtn, transparentBtn } from '@/app/ui/custom-classes';
 
 const features = ['Proudly serving Maun and businesses across Botswana'];
@@ -14,12 +14,41 @@ const stats = [
 
 export default function AboutUsCTA() {
   return (
-    <section className="w-full bg-darker px-4 py-16 md:py-20">
+    <section className="w-full bg-neutral-900 px-4 py-16 md:py-20 dark:bg-darker">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            {/* Heading */}
+            <h2
+              className={`mb-5 font-heading text-3xl font-bold leading-[1] text-neutral-300 md:text-6xl`}
+            >
+              Selling Quality <br />
+              <span className="bg-gradient-to-r from-blue-500 via-red-600 to-yellow-500 bg-clip-text italic text-transparent">
+                Since 2013
+              </span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-4 lg:text-right">
+            <div className="flex items-baseline justify-end gap-2 text-red-600">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <span key={i} className="font-display text-2xl leading-none">
+                  ★
+                </span>
+              ))}
+            </div>
+            <p className="font-display tracking-editorial mt-3 text-3xl font-medium text-neutral-400">
+              <span className="font-mono">4.9</span>
+              <span className="text-ink-500"> / 5</span>
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="mx-auto max-w-6xl">
         <div className="overflow-hidden rounded-xl border border-neutral-700">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* ── Left — Content ── */}
-            <div className="relative flex flex-col justify-center overflow-hidden p-8 py-10 md:px-12">
+            <div className="relative flex flex-col justify-center overflow-hidden bg-neutral-800 p-8 py-10 md:px-12 dark:bg-transparent">
               {/* Decorative ghost year — sits behind content */}
               <span
                 aria-hidden="true"
@@ -29,30 +58,15 @@ export default function AboutUsCTA() {
               </span>
 
               <div className="relative z-10">
-                {/* Section label */}
-                <p className="mb-3 font-content text-[11px] font-semibold uppercase tracking-[0.3em] text-neutral-500">
-                  Our Story
-                </p>
-
-                {/* Heading */}
-                <h2
-                  className={`mb-5 font-heading text-3xl font-bold leading-tight text-neutral-300 md:text-4xl`}
-                >
-                  Selling Quality{' '}
-                  <span className="bg-gradient-to-r from-blue-500 via-red-600 to-yellow-500 bg-clip-text text-transparent">
-                    Since 2013
-                  </span>
-                </h2>
-
                 {/* Description */}
-                <p className="mb-8 font-content text-sm leading-relaxed text-neutral-400">
+                <p className="mb-8 font-content text-base italic leading-relaxed text-neutral-300">
                   For over a decade, Zima Packaging has been Maun&apos;s trusted source for quality
                   Packaging products and Food Service supplies. We believe every customer deserves
                   reliable products and homest pricing.
                 </p>
 
                 {/* Stats row */}
-                <div className="mb-8 grid grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800 py-5">
+                <div className="mb-8 grid grid-cols-3 divide-x divide-neutral-700 border-y border-neutral-700 py-5">
                   {stats.map((stat) => (
                     <div key={stat.label} className="px-4 text-center first:pl-0 last:pr-0">
                       <p className={`font-heading text-4xl font-semibold text-neutral-200`}>
@@ -70,10 +84,10 @@ export default function AboutUsCTA() {
                   {features.map((feature) => (
                     <li
                       key={feature}
-                      className={`${notoSans.className} flex items-center gap-3 text-sm text-neutral-400`}
+                      className={`${notoSans.className} flex items-center gap-2 text-sm text-neutral-400`}
                     >
-                      <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-red-500 bg-red-700/15">
-                        <Check className="h-3.5 w-3.5 text-red-500" />
+                      <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center bg-red-700/15">
+                        <FaCheckCircle className="h-5 w-5 text-red-500" />
                       </span>
                       {feature}
                     </li>
